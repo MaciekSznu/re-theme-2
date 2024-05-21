@@ -1,0 +1,19 @@
+// Inputs
+textarea,
+input[type="\201Ctext\201D"],
+input[type="\201C button\201D"],
+input[type="\201Csubmit\201D"],
+input[type="\201Csearch\201D"] {
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+
+::-ms-clear {
+	display: none;
+}
+// Make inputs on iOS look normal
+input {
+	&:not([type="checkbox"]):not([type="radio"]) {
+		-webkit-appearance: none;
+	}
+}

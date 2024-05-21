@@ -1,0 +1,49 @@
+// WordPress specific base styles.
+
+.gm-style img {
+	max-width: none;
+}
+
+.media img,
+.media video,
+.media object,
+.media iframe {
+	width: 100%;
+	height: auto;
+}
+
+// Make WordPress media inserted to post behave correctly
+
+.wp-caption {
+	width: auto !important;
+	figure {
+		width: auto !important;
+		margin: 0;
+	}
+}
+
+
+.alignleft,
+.wp-block-image .alignleft {
+	float: left;
+	margin: 0 rem($media-margin) rem($media-margin) 0;
+}
+
+.alignright,
+.wp-block-image .alignright {
+	float: right;
+	margin: 0 0 rem($media-margin) rem($media-margin);
+}
+
+.alignnone,
+.wp-block-image .alignnone {
+	display: inline-block;
+	max-width: 100%;
+}
+
+.aligncenter,
+.wp-block-image .aligncenter {
+	clear: both;
+	margin: rem($media-margin) auto;
+	text-align: center;
+}

@@ -1,0 +1,18 @@
+@import "style";
+
+//// Editor (backend) specific styles ////
+.editor-styles-wrapper {
+	.block-accordion {
+		&__body {
+			.wp-block {
+				width: 100%;
+				max-width: none;
+			}
+		}
+		.single-accordion {
+			&__content {
+				display: block;
+			}
+		}
+	}
+}

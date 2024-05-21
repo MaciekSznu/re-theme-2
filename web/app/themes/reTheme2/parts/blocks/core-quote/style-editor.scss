@@ -1,0 +1,7 @@
+@import "style";
+
+.wp-block-quote {
+	&__citation {
+		color: $secondary;
+	}
+}

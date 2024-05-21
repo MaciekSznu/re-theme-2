@@ -1,0 +1,17 @@
+.block-content {
+	&--spacing-top {
+		padding-top: 70px;
+	}
+	&--spacing-bottom {
+		padding-bottom: 70px;
+	}
+	&--margin-top {
+		margin-top: 84px;
+	}
+	&--margin-bottom {
+		margin-bottom: 84px;
+	}
+	.columns-row {
+		margin-bottom: 30px;
+	}
+}

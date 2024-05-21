@@ -1,0 +1,331 @@
+/* stylelint-disable */
+
+// Text Elements
+p {
+	margin: 0 0 rem(27);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&.is-style-uppercase {
+		text-transform: uppercase;
+	}
+
+	&.is-style-preheading {
+		color: $secondary;
+		text-transform: uppercase;
+	}
+
+	&.is-style-leadparagraph {
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: rel(26, 18);
+	}
+}
+
+//Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-weight: 600;
+	margin-top: 0;
+
+	&:only-child {
+		margin-bottom: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+h1,
+.h1 {
+	margin-bottom: em(20, 45);
+	@include font(45, 45);
+
+	@include media(">=md") {
+		margin-bottom: em(32, 72);
+		@include font(72, 72);
+	}
+
+
+	p+& {
+		margin-top: em(24, 45);
+
+		@include media(">=md") {
+			margin-top: em(44, 72)
+		}
+	}
+
+
+
+}
+
+h2,
+.h2 {
+	margin-bottom: em(20, 35);
+	@include font(35, 37);
+
+	@include media(">=md") {
+		margin-bottom: em(30, 60);
+		@include font(60, 60);
+	}
+
+	p+& {
+		margin-top: em(24, 35);
+
+		@include media(">=md") {
+			margin-top: em(44, 60)
+		}
+	}
+}
+
+h3,
+.h3 {
+	margin-bottom: em(20, 27);
+	@include font(27, 30);
+
+	@include media(">=md") {
+		margin-bottom: em(30, 45);
+		@include font(45, 50);
+	}
+
+	p+& {
+		margin-top: em(24, 27);
+
+		@include media(">=md") {
+			margin-top: em(44, 45)
+		}
+	}
+}
+
+h4,
+.h4 {
+	margin-bottom: em(20, 22);
+	@include font(22, 26);
+
+	@include media(">=md") {
+		margin-bottom: em(30, 27);
+		@include font(27, 30);
+	}
+
+	p+& {
+		margin-top: em(24, 22);
+
+		@include media(">=md") {
+			margin-top: em(44, 27)
+		}
+	}
+}
+
+h5,
+.h5 {
+	margin-bottom: em(20, 20);
+	@include font(20, 24);
+
+	p+& {
+		margin-top: em(24, 20);
+
+		@include media(">=md") {
+			margin-top: em(44, 20)
+		}
+	}
+}
+
+
+h6,
+.h6 {
+	margin-bottom: em(20, 18);
+	@include font(18, 20);
+
+	p+& {
+		margin-top: em(24, 18);
+
+		@include media(">=md") {
+			margin-top: em(44, 18);
+		}
+	}
+}
+
+/* Custom List Styles */
+ol {
+	counter-reset: item;
+	display: block;
+	padding: 0;
+	margin: 0 0 em(25);
+	list-style: none;
+
+	@include media('>=md') {
+		margin: 0 0 em(32);
+	}
+
+	li {
+		display: block;
+		padding: 0 0 0 rem(32);
+		position: relative;
+		margin: 0 0 rem(5);
+
+		&:last-child {
+			margin: 0;
+		}
+
+		&:before {
+			content: counters(item, '.') '.';
+			counter-increment: item;
+			position: absolute;
+			left: 0;
+			font-weight: $font-weight-base;
+		}
+
+		li {
+			padding: 0 0 0 rem(32);
+			position: relative;
+			margin: 0 0 rem(5);
+
+
+			@include media('>=md') {
+				padding: 0 0 0 rem(42);
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+
+			&:before {
+				content: counters(item, '.') ' ';
+			}
+		}
+	}
+
+	ol {
+		margin: rem(10) 0;
+	}
+}
+
+ul:not([class]) {
+	padding: 0;
+	margin: 0 0 em(25);
+	list-style: none;
+
+	@include media('>=md') {
+		margin: 0 0 em(32);
+	}
+
+	li {
+		padding: 0 0 0 rem(32);
+		position: relative;
+		margin: 0 0 rem(5);
+
+		&:last-child {
+			margin: 0;
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			width: rem(7);
+			height: rem(7);
+			position: absolute;
+			top: rem(9);
+			left: rem(0);
+			border-radius: 50%;
+			background: $text-color-base;
+		}
+
+		li {
+			padding: 0 0 0 rem(32);
+			margin: 0 0 rem(2);
+
+			&:last-child {
+				margin: 0;
+			}
+
+			&:before {
+				content: '';
+				width: rem(12);
+				height: rem(2);
+				top: rem(12);
+				left: 0;
+				border: none;
+				border-radius: 0;
+			}
+		}
+
+		ul {
+			margin: rem(10) 0;
+
+			@include media('>=md') {
+				margin: rem(10) 0;
+			}
+		}
+	}
+}
+
+// Normalize links across browsers
+a {
+	display: inline-block;
+	font-weight: 400;
+	color: $link-color;
+	text-decoration: none;
+	transition: color $default-transition-speed;
+
+	&:focus,
+	&:hover {
+		color: $link-hover-color;
+	}
+
+	.editor-rich-text &,
+	.page-content &:not([class]) {
+		position: relative;
+	}
+
+	.editor-rich-text &::before,
+	.page-content &:not([class])::before {
+		content: "";
+		width: 100%;
+		height: rem(1);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: currentcolor;
+		transition: background-color 0.2s;
+	}
+
+	.rich-text &:hover::before,
+	.page-content &:not([class]):hover::before {
+		background-color: $link-hover-color;
+	}
+
+	img {
+		border: 0;
+	}
+}
+
+/* Horizontal Line */
+hr {
+	margin: rem(40) 0 rem(40);
+	border-top: 1px solid $text-color-base;
+}
+
+::selection {
+	color: $text-light;
+	background: $secondary;
+}
+
+::-moz-selection {
+	color: $text-light;
+	background: $secondary;
+}
+
+/* stylelint-enable */

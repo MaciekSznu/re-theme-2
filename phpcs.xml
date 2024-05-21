@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="CC WordPress Coding Standards">
+    <description>CC WordPress Coding Standards</description>
+
+    <!-- Exclude paths -->
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <!-- Configs -->
+    <config name="minimum_supported_wp_version" value="4.4" />
+    <config name="testVersion" value="5.9" />
+
+    <!-- Scan all files in directory -->
+    <file>web/app/themes/.</file>
+
+    <!-- Scan only PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Show colors in console -->
+    <arg value="-colors"/>
+
+    <!-- Pass some flags to PHPCS:
+		 p flag: Show progress of the run.
+		 s flag: Show sniff codes in all reports.
+	-->
+    <arg value="sp"/>
+
+    <!-- Check up to 8 files simultaneously. -->
+    <arg name="parallel" value="8"/>
+
+    <!-- Rules -->
+    <rule ref="WordPress">
+        <exclude name="WordPress.WP.I18n"/>
+    </rule>
+
+    <rule ref="WordPress.Arrays.MultipleStatementAlignment">
+        <properties>
+            <!-- Array assignment operator should always be on the same line as the array key. -->
+            <property name="ignoreNewlines" value="false"/>
+        </properties>
+    </rule>
+    
+    <rule ref="PHPCompatibilityWP"/>
+
+</ruleset>

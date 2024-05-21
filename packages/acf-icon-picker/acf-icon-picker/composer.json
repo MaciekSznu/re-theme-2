@@ -1,0 +1,6 @@
+{
+	"name": "acf-icon-picker/acf-icon-picker",
+	"description": "Add ACF field for selecting SVG icons.",
+    "version": "1.9.1",
+    "type": "wordpress-plugin"
+}

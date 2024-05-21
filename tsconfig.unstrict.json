@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "target": "ES6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "lib": ["dom", "es2015", "es2016", "es2017", "es2018", "esnext"],
+        "baseUrl": ".",
+        "jsx": "react",
+        "paths": {
+            "~storybook/*": [".storybook/*"],
+            "*": ["src/*"]
+        },
+        "typeRoots": ["./node_modules/@types"],
+        "noEmitOnError": false,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true
+    },
+    "exclude": ["../node_modules", "node_modules", "**/node_modules", "vendor", "web/app/plugins"]
+}

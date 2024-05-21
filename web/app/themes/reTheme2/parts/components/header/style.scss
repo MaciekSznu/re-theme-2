@@ -1,0 +1,15 @@
+@import "__settings/init";
+
+.main-header {
+	display: flex;
+	align-items: center;
+	height: 80px;
+	background-color: $secondary-dark;
+
+	nav {
+		a {
+			margin-right: rem(20);
+			color: $color-3;
+		}
+	}
+}

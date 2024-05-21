@@ -1,0 +1,61 @@
+@import "__settings/init";
+
+// Buttons styles
+.wp-block-buttons {
+	margin: rem(40) 0;
+}
+
+div.wp-block-button {
+
+	&--icon {
+
+		>.wp-block-button__link {
+			&::after {
+				content: var(--buttonIcon);
+				font-family: $font-iconfont;
+				font-size: 20px;
+				font-weight: 700;
+				font-style: normal;
+				font-variant: normal;
+				line-height: 1;
+				text-transform: none;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		}
+	}
+
+	>div,
+	a,
+	button {
+		@include button;
+	}
+
+	&--icon-align-left {
+
+		>.wp-block-button__link {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&--primary {
+
+		>.wp-block-button__link {
+			@include button-primary;
+		}
+	}
+
+	&--secondary {
+
+		>.wp-block-button__link {
+			@include button-secondary;
+		}
+	}
+
+	&--tertiary {
+
+		>.wp-block-button__link {
+			@include button-tertiary;
+		}
+	}
+}

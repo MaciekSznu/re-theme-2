@@ -1,0 +1,36 @@
+@import "__settings/init";
+$spacing-mobile: 50;
+$spacing: 70;
+$margin-mobile: 50;
+$margin: 70;
+
+.columns-row {
+	&--spacing-top {
+		padding-top: rem($spacing-mobile);
+
+		@include media(">=md") {
+			padding-top: rem($spacing);
+		}
+	}
+	&--spacing-bottom {
+		padding-bottom: rem($spacing-mobile);
+
+		@include media(">=md") {
+			padding-bottom: rem($spacing);
+		}
+	}
+	&--margin-top {
+		margin-top: rem($margin-mobile);
+
+		@include media(">=md") {
+			margin-top: rem($margin);
+		}
+	}
+	&--margin-bottom {
+		margin-bottom: rem($margin-mobile);
+
+		@include media(">=md") {
+			margin-bottom: rem($margin);
+		}
+	}
+}

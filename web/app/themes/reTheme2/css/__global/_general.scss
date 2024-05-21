@@ -1,0 +1,155 @@
+@use "sass:math";
+
+/*
+----------------------------------------
+GENERAL
+
+The most general styles for
+<html>, <body> and .container
+
+Set font and clear body padding
+*/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+button,
+a,
+input,
+select,
+textarea {
+	font-family: $font-base;
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	margin: 0;
+	font-weight: $font-weight-base;
+	color: $text-color-base;
+	background: $body-background-color;
+
+	@include font($font-size-base, $line-height-base);
+	-webkit-font-smoothing: antialiased;
+	-ms-scroll-limit-x-max: 100%;
+	-ms-scroll-limit-x-min: 0;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+figure {
+	margin: 0;
+}
+
+// Make all images responsive
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/* Set custom outline styles */
+a,
+button,
+input,
+select,
+textarea {
+	&:focus {
+		outline: none;
+
+		html.user-tab-nav & {
+			outline: $outline;
+			outline-offset: 0;
+		}
+	}
+}
+
+.navigation.pagination {
+	clear: both;
+}
+
+// WP navigation menus are lists, but they don't need default list styling
+nav {
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li {
+		display: inline-block;
+	}
+}
+
+// Stop css animation of the specific elements during resizing
+.resize-animation-stopper {
+	.main-header * {
+		transition: none !important;
+	}
+}
+
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	position: absolute;
+	margin: -1px;
+	word-wrap: normal !important;
+	border: 0;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+}
+
+/* Set helper variables for the responsive grid */
+:root {
+	--columnMaxWidth: calc(100% / 12);
+
+	@each $breakpoint, $container-max-width in $container-max-widths {
+
+		@if ($breakpoint !="max" and $breakpoint !="xxxl") {
+			@include media(">=#{$breakpoint}") {
+				--columnWidth: #{math.div($container-max-width, 12)};
+			}
+		}
+	}
+}
+
+/* Set responsive grid to text elements */
+.page-entry {
+	>*:not(section):not(.tribe-events):not(.wp-block-embed):not(.woocommerce):not(.alignfull):not(.columns-row):not(.alignwide) {
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		@include responsive-grid(12, 12, 12, 12, 12);
+	}
+
+	>*:not(.wp-block-custom-container).alignwide {
+		margin-left: auto;
+		margin-right: auto;
+		
+		@include media("<xxxl") {
+			@include responsive-grid(12, 12, 12, 12, 12);
+		}
+
+		@include media(">=xxxl") {
+			max-width: calc(#{map_get($container-max-widths, xxxl)} - #{$container-padding-desktop * 2}px);
+		}
+		@include media(">=max") {
+			max-width: calc(#{map_get($container-max-widths, max)} - #{$container-padding-desktop * 2}px);
+		}
+
+	}
+
+	>.wp-block-embed {
+		margin-left: auto;
+		margin-right: auto;
+
+		@include responsive-grid();
+	}
+}

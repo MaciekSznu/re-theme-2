@@ -1,0 +1,7 @@
+{
+    "extends": "./tsconfig.unstrict.json",
+    "compilerOptions": {
+        "strict": true,
+        "allowJs": true
+    }
+}

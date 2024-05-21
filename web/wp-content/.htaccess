@@ -1,0 +1,1 @@
+RewriteRule ^(.*)$ /app/$1 [R=302,NC,L]

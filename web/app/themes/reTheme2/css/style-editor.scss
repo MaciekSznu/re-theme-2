@@ -1,0 +1,75 @@
+// Settings
+@import "__settings/init";
+
+// General
+@import "__global/init";
+
+// Layout
+@import "__layout/init";
+
+
+// Fix for backend UI elements
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+
+/// General layout
+.block-editor-block-list__layout {
+	.block-editor-block-list__block {
+		&[data-align="wide"] {
+			> .block-editor-block-list__block-edit {
+				margin-right: -30px;
+				margin-left: -30px;
+			}
+		}
+
+		table {
+			width: calc(100% - 2px);
+		}
+	}
+}
+
+.block-library-list ol {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+.editor-styles-wrapper select,
+[id*="acf-block_"] {
+	max-width: none !important;
+}
+
+
+// This is for Inserter Help Panel block preview images
+
+.acf-block-insterter-panel-preview {
+	display: none;
+}
+
+.block-editor-block-preview__content {
+	.acf-block-preview {
+		width: 500px !important;
+		position: absolute;
+		top: -230px !important;
+
+		.acf-block-insterter-panel-preview {
+			display: block;
+
+			&__missing {
+				display: block;
+				position: relative;
+				top: 250px;
+				margin: 0 auto;
+				font-size: 180%;
+				text-align: center;
+			}
+
+			+ * {
+				display: none;
+			}
+		}
+	}
+}

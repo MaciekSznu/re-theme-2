@@ -1,0 +1,18 @@
+{
+    "Primary": "#fbe8d3",
+
+    "Secondary": "#928a97",
+    "Secondary-dark": "#283c63",
+
+    "Link": "#e84545",
+    "Link-Hover": "#222222",
+
+    "Color-1": "#f9f7f7",
+    "Color-2": "#f1edee",
+    "Color-3": "#dbe2ef",
+    "Color-4": "#3f72af",
+    "Color-5": "#112d4e",
+
+    "Text": "#222222",
+    "Text Light": "#f9f7f7"
+}

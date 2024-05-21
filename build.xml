@@ -1,0 +1,66 @@
+<project name="project" default="build">
+  <target name="build">
+    <echo>Building project...</echo>
+
+    <!-- Cleanup cache files -->
+    <exec executable="rm" failonerror="true">
+        <arg value="web/app/w3tc-config/master.php" />
+        <arg value="web/app/advanced-cache.php" />
+        <arg value="-f" />
+    </exec>
+
+    <!-- Install dependencies -->
+    <exec executable="yarn" failonerror="true">
+        <arg value="--non-interactive" />
+        <arg value="--pure-lockfile" />
+    </exec>
+    <exec executable="composer" failonerror="true">
+        <arg value="install" />
+    </exec>
+
+    <!-- Build project -->
+    <exec executable="yarn" failonerror="true">
+        <arg value="build" />
+    </exec>
+
+    <!-- Create database -->
+    <exec executable="vendor/bin/wp">
+        <arg value="db" />
+        <arg value="create" />
+        <arg value="--quiet" />
+    </exec>
+
+    <!-- Import database -->
+    <exec executable="yarn" failonerror="true">
+        <arg value="db-import" />
+    </exec>
+
+    <!-- Regenerate images -->
+    <exec executable="vendor/bin/wp">
+        <arg value="media" />
+        <arg value="regenerate" />
+        <arg value="--yes" />
+    </exec>
+
+    <!-- Flush permalinks -->
+    <exec executable="vendor/bin/wp">
+        <arg value="rewrite" />
+        <arg value="flush" />
+        <arg value="--hard" />
+    </exec>
+    
+    <!-- Create filepack -->
+    <!-- <exec executable="yarn">
+        <arg value="filepack" />
+    </exec> -->
+   
+
+    <!-- Create filepack-full -->
+    <!-- <exec executable="yarn">
+        <arg value="filepack-full" />
+    </exec> -->
+   
+
+    <echo>Building... Done</echo>
+  </target>
+</project>

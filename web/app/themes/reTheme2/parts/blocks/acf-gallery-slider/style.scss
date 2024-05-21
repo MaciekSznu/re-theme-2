@@ -1,0 +1,59 @@
+@import "__settings/init";
+
+.block-gallery-slider {
+	margin: rem(50) 0;
+
+	@include media(">=lg") {
+		margin: rem(120) 0;
+	}
+	h2 {
+		margin-bottom: rem(100);
+		text-align: center;
+	}
+	.col-12 {
+		padding: 0;
+	}
+
+	.gallery-slide {
+		margin: 0 5px;
+
+		img {
+			width: auto;
+			height: 155px;
+
+			@include media(">=md") {
+				height: 320px;
+			}
+
+			@include media(">=lg") {
+				height: 518px;
+			}
+		}
+		&__caption {
+			pointer-events: none;
+			padding: 10px 10px;
+			font-weight: 300;
+			text-align: center;
+			opacity: 0;
+			transition: opacity 0.2s linear;
+
+			@include font(12, 18);
+
+			@include media(">=lg") {
+				@include font(18, 20);
+			}
+		}
+	}
+
+	&__wrapper--slider {
+		padding: 0;
+		position: relative;
+
+		.slick-center {
+			.gallery-slide__caption {
+				pointer-events: all;
+				opacity: 1;
+			}
+		}
+	}
+}

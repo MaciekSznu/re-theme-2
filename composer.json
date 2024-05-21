@@ -1,0 +1,76 @@
+{
+    "config": {
+        "preferred-install": "dist",
+        "platform": {
+            "php": "8.0"
+        },
+		"allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true,
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*/*",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "composer/installers": "^1.4",
+        "vlucas/phpdotenv": "^2.0.1",
+        "johnpbloch/wordpress": "^6.0.1",
+        "oscarotero/env": "^1.1.0",
+        "roots/wp-password-bcrypt": "1.0.0",
+        "roots/wp-config": "1.0.0",
+        "kint-php/kint": "*",
+        "filp/whoops": "*",
+        "advanced-custom-fields-pro/advanced-custom-fields-pro": "^6.2.1.1",
+		"acf-icon-picker/acf-icon-picker": "^1.9.1",
+		"wp-sync-db/wp-sync-db": "^1.7.1",
+        "wpackagist-plugin/regenerate-thumbnails": "^3.1",
+		"wpackagist-plugin/safe-svg": "^2.0.1",
+        "wpackagist-plugin/duplicate-post": "^4.4"
+    },
+    "require-dev": {
+        "wp-cli/wp-cli": "^2.8.1",
+        "wp-cli/db-command": "^2.0",
+        "wp-cli/search-replace-command": "^2.0",
+        "wp-cli/rewrite-command": "^2.0",
+        "wp-cli/core-command": "^2.0",
+        "wp-cli/media-command": "^2.0",
+        "wp-coding-standards/wpcs": "^2.2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "phpcompatibility/phpcompatibility-wp": "^2.1.0"
+    },
+    "extra": {
+        "wordpress-install-dir": "web/wp",
+        "installer-paths": {
+            "web/app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+    "scripts": {
+        "test": [
+            "phpcs"
+        ],
+        "fix": [
+            "phpcbf"
+        ]
+    }
+}

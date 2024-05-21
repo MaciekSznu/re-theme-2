@@ -1,0 +1,68 @@
+.has-text-uppercase {
+	text-transform: uppercase;
+}
+
+.has-text-align-left {
+	text-align: left;
+}
+
+.has-text-align-right {
+	text-align: right;
+}
+
+.has-text-align-center {
+	text-align: center;
+}
+
+.has-large-font-size {
+	letter-spacing: rem(0.2);
+
+	@include font(20, 26.66);
+}
+
+.has-normal-font-size,
+.has-regular-font-size {
+	font-weight: $font-weight-base;
+
+	@include font($font-size-base, $line-height-base);
+}
+
+.is-style-subheading {
+	margin-bottom: rem(34);
+	font-weight: 600;
+	color: $primary;
+	letter-spacing: rem(1.6);
+	text-transform: uppercase;
+
+	@include font(16, 22.4);
+}
+
+.is-style-underline {
+	padding-bottom: rem(20);
+	position: relative;
+	margin-bottom: rem(25);
+
+	&::after {
+		content: "";
+		width: rem(100);
+		height: rem(2);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: inherit;
+	}
+}
+
+.block-acf {
+	margin-top: rem(36);
+	margin-bottom: rem(36);
+
+	@include media(">=lg") {
+		margin-top: rem(60);
+		margin-bottom: rem(60);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

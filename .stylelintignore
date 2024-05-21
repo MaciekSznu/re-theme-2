@@ -1,0 +1,6 @@
+web/app/themes/*/css/__vendors/**/*
+web/app/themes/*/css/vendor/**/*
+web/app/themes/*/css/__iconfont/**/*
+web/app/themes/*/css/iconfont/**/*
+web/app/themes/*/js/
+web/app/themes/*/parts/**/*.js

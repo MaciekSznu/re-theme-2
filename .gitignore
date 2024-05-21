@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+/vendor/
+
+# WP
+web/wp
+web/.htaccess
+web/app/plugins/*
+web/app/upgrade
+web/app/uploads/*
+web/app/themes/**/fonts
+web/app/uploads/wp-sync-db
+
+# Compiled assets
+web/app/themes/**/*bundle*.js
+web/app/themes/*/css/style.css
+web/app/themes/*/css/style-editor.css
+web/app/themes/*/css/style-admin.css
+web/app/themes/*/css/style-login.css
+web/app/themes/*/css/__iconfont
+#
+web/app/themes/*/css/style*.css
+web/app/themes/*/css/**/style*.css
+web/app/themes/**/css/admin/**/*.css
+web/app/themes/*/js/lib/**/*.css
+
+# Filepacks
+web/filepack*
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# No OS-specific garbage
+*~
+.DS_Store
+Thumbs.db
+thumbs.db
+
+# No PhpStorm user configuration
+
+## User-specific stuff:
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/terminal.xml
+
+## Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+## Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+## ignore editor configuration
+.phpintel
+
+# No test temp files.
+/backstop_data/bitmaps_test
+/backstop_data/html_report
+
+# Ignore w3totalCache plugin Cache
+web/app/advanced-cache.php
+web/app/cache/db/
+web/app/cache/minify/
+web/app/db.php
+web/app/w3tc-config/master.php
