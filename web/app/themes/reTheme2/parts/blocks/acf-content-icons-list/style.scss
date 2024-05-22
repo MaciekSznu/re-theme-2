@@ -1,0 +1,272 @@
+@import "__settings/init";
+
+.content-icons-list {
+	$block: &;
+	display: flex;
+	align-items: center;
+	min-height: rem(400);
+	position: relative;
+	background: rgba($color-4, 0.5);
+
+	@include media(">=md") {
+		min-height: rem(450);
+	}
+
+	@include media(">=lg") {
+		min-height: rem(550);
+	}
+
+	@include media(">=xl") {
+		min-height: rem(600);
+	}
+
+	.decorator {
+		pointer-events: none;
+		width: 100%;
+		height: auto;
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+
+		svg path {
+			fill: $color-4;
+			fill-opacity: 0.25;
+		}
+
+		@include media(">=xl") {
+			height: 33%;
+			transform: scaleY(0.5);
+			transform-origin: top center;
+		}
+	}
+
+	&__content-wrapper {
+		margin-bottom: rem(20);
+
+		@include media(">=md") {
+			margin-bottom: rem(30);
+		}
+
+		@include media(">=lg") {
+			margin-bottom: rem(40);
+		}
+	}
+
+	&__content {
+		@include media(">=md") {
+			max-width: 75%;
+		}
+
+		@include media(">=lg") {
+			max-width: 60%;
+		}
+	}
+
+	&__list-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(40);
+	}
+
+	&__list-item {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 100%;
+		padding: rem(10) 0;
+		border-bottom: rem(2) solid $color-4;
+
+		@include media(">=md") {
+			width: calc(50% - #{rem(20)});
+			max-width: 50%;
+		}
+	}
+
+	&__list-item-icon {
+		height: rem(60);
+
+		@include media(">=md") {
+			height: rem(80);
+		}
+		svg {
+			width: auto;
+			height: 100%;
+		}
+	}
+
+	&__list-item-text {
+		font-weight: 500;
+	}
+
+	&--icons-left,
+	&--icons-right {
+		#{$block}__wrapper {
+			@include media(">=md") {
+				display: flex;
+				gap: rem(20);
+			}
+
+			@include media(">=lg") {
+				gap: rem(40);
+			}
+		}
+
+		#{$block}__list-wrapper,
+		#{$block}__content-wrapper {
+			@include media(">=md") {
+				width: 50%;
+				max-width: calc(50% - #{rem(10)});
+			}
+		}
+
+		#{$block}__list-wrapper {
+			@include media(">=lg") {
+				gap: rem(20);
+			}
+		}
+
+		#{$block}__content-wrapper {
+			@include media(">=md") {
+				margin-bottom: 0;
+			}
+		}
+
+		#{$block}__content {
+			@include media(">=md") {
+				max-width: 100%;
+			}
+
+			@include media(">=lg") {
+				max-width: 100%;
+			}
+		}
+
+		#{$block}__list-item {
+			@include media(">=md") {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+
+		#{$block}__list-item-icon {
+			@include media(">=md") {
+				height: rem(60);
+			}
+		}
+	}
+
+	&--icons-left {
+		#{$block}__wrapper {
+			@include media(">=md") {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+
+	&--icons-right {
+		#{$block}__wrapper {
+			@include media(">=md") {
+				flex-direction: row;
+			}
+		}
+	}
+
+	&--grid {
+		#{$block}__list-wrapper {
+			display: grid;
+			gap: rem(10);
+			grid-template-columns: repeat(2, 1fr);
+			justify-items: stretch;
+
+			@include media(">=md") {
+				gap: rem(20);
+				grid-template-columns: repeat(4, 1fr);
+
+				&[data-items="3"],
+				&[data-items="6"] {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+		}
+		#{$block}__list-item {
+			display: flex;
+			flex-direction: column-reverse;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			max-width: 100%;
+			padding: rem(10);
+			min-height: rem(140);
+			border: none;
+			border-radius: rem(6);
+			background-color: $color-light;
+			// box-shadow: $box-shadow;
+
+			@include media(">=sm") {
+				min-height: rem(160);
+			}
+
+			@include media(">=md") {
+				padding: rem(20);
+			}
+
+			@include media(">=lg") {
+				min-height: rem(180);
+			}
+
+			@include media(">=xl") {
+				min-height: rem(200);
+			}
+		}
+
+		#{$block}__list-item-text {
+			p {
+				font-size: rem(14);
+				text-align: center;
+
+				@include media(">=md") {
+					font-size: rem(14);
+				}
+
+				@include media(">=xl") {
+					font-size: rem(16);
+				}
+			}
+		}
+
+		#{$block}__list-item-icon {
+			margin-bottom: rem(10);
+
+			@include media(">=sm") {
+				height: rem(70);
+			}
+
+			@include media(">=lg") {
+				height: rem(80);
+			}
+
+			@include media(">=xl") {
+				height: rem(100);
+			}
+
+			img {
+				max-height: 100%;
+				width: auto;
+			}
+		}
+
+		&.content-icons-list--icons-left,
+		&.content-icons-list--icons-right {
+			#{$block}__list-wrapper {
+				@include media(">=md") {
+					gap: rem(20);
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+		}
+	}
+}

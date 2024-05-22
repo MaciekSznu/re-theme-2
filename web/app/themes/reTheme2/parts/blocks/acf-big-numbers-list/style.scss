@@ -1,0 +1,144 @@
+@import "__settings/init";
+
+.big-numbers-list {
+	$block: &;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: rem(400);
+	position: relative;
+	background: $color-4;
+
+	@include media(">=md") {
+		min-height: rem(450);
+	}
+
+	@include media(">=lg") {
+		min-height: rem(550);
+	}
+
+	@include media(">=xl") {
+		min-height: rem(600);
+	}
+
+	.decorator {
+		pointer-events: none;
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+
+		svg path {
+			fill: $color-light;
+			fill-opacity: 0.125;
+		}
+
+		@include media(">=xl") {
+			height: 33%;
+			transform: scaleY(0.5);
+			transform-origin: top center;
+		}
+
+		&:nth-child(2) {
+			top: auto;
+			bottom: 0;
+			transform: rotate(180deg);
+
+			@include media(">=xl") {
+				height: 33%;
+				transform: scaleY(0.5) rotate(180deg) translateY(-50%);
+				transform-origin: center center;
+			}
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__title {
+		margin-bottom: rem(20);
+		text-align: center;
+
+		@include media(">=md") {
+			margin-bottom: rem(30);
+		}
+
+		@include media(">=lg") {
+			margin-bottom: rem(35);
+		}
+
+		@include media(">=xl") {
+			margin-bottom: rem(40);
+		}
+	}
+
+	&__numbers-wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(30);
+
+		@include media(">=sm") {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: rem(30);
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+
+		@include media(">=sm") {
+			flex: 0 0 45%;
+		}
+
+		@include media(">=md") {
+			flex: 0 0 30%;
+		}
+	}
+
+	&__item-value,
+	&__item-title {
+		text-align: left;
+	}
+
+	&__item-value {
+		margin-bottom: 0;
+		font-size: rem(84);
+		font-weight: 700;
+		opacity: 0.25;
+
+		@include media(">=lg") {
+			font-size: rem(96);
+		}
+
+		@include media(">=xl") {
+			font-size: rem(112);
+		}
+	}
+
+	&__item-title {
+		max-width: rem(260);
+		padding-left: rem(25);
+		margin-top: rem(-35);
+		font-weight: 500;
+
+		@include media(">=lg") {
+			max-width: rem(270);
+			padding-left: rem(29);
+			margin-top: rem(-37);
+		}
+
+		@include media(">=xl") {
+			padding-left: rem(33);
+			margin-top: rem(-41);
+		}
+	}
+}

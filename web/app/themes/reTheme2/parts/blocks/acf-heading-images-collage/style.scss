@@ -1,0 +1,209 @@
+@import "__settings/init";
+
+.heading-img-coll {
+	$block: &;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__image-wrapper {
+		width: 100%;
+		height: 40vh;
+		height: 40svh;
+		max-height: rem(280);
+		padding: rem(15);
+		position: relative;
+
+		@include media(">=md") {
+			height: 32vw;
+			max-height: unset;
+		}
+
+		@include media(">=lg") {
+			height: 36vw;
+			max-height: unset;
+			padding: rem(20);
+		}
+
+		@include media(">=xl") {
+			height: rem(400);
+		}
+	}
+
+	&__background-image {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		border-radius: rem(4);
+		box-shadow: $box-shadow;
+		overflow: hidden;
+		inset: 0;
+
+		@include media(">=md") {
+			border-radius: rem(6);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			inset: 0;
+			object-fit: cover;
+		}
+	}
+
+	&__small-images {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: flex-end;
+		height: 100%;
+		position: relative;
+		margin-left: auto;
+		gap: rem(15);
+
+		@include media(">=lg") {
+			width: 36vw;
+		}
+
+		@include media(">=xl") {
+			display: grid;
+			grid-template-areas:
+				" . img3 img1"
+				" img4 img2 img1";
+		}
+	}
+
+	&__small-image {
+		width: 50%;
+		height: calc(50% - #{rem(7.5)});
+		max-width: rem(150);
+		max-height: rem(150);
+		position: relative;
+		border-radius: rem(4);
+		overflow: hidden;
+
+		&:nth-last-child(4),
+		&:nth-last-child(3),
+		&:nth-last-child(2) {
+			pointer-events: none;
+			visibility: hidden;
+		}
+
+		@include media(">=md") {
+			width: calc(32vw - #{rem(30)});
+			height: calc(32vw - #{rem(30)});
+			max-width: unset;
+			max-height: unset;
+			border-radius: rem(6);
+
+			&:nth-last-child(4),
+			&:nth-last-child(3) {
+				width: 0;
+			}
+
+			&:nth-last-child(2) {
+				pointer-events: all;
+				visibility: visible;
+			}
+		}
+
+		@include media(">=lg") {
+			width: calc(18vw - #{rem(30)});
+			height: calc(18vw - #{rem(30)});
+			max-width: unset;
+			max-height: unset;
+
+			&:nth-last-child(4),
+			&:nth-last-child(3) {
+				width: calc(18vw - #{rem(30)});
+			}
+
+			&:nth-last-child(3) {
+				pointer-events: all;
+				visibility: visible;
+			}
+		}
+
+		@include media(">=xl") {
+			width: calc(#{rem(200)} - #{rem(30)});
+			height: calc(#{rem(200)} - #{rem(30)});
+			max-width: unset;
+			max-height: unset;
+
+			&:nth-last-child(4),
+			&:nth-last-child(3) {
+				width: calc(#{rem(200)} - #{rem(30)});
+			}
+
+			&:nth-last-child(1) {
+				height: 100%;
+				grid-area: img1;
+			}
+
+			&:nth-last-child(2) {
+				grid-area: img2;
+			}
+
+			&:nth-last-child(3) {
+				grid-area: img3;
+			}
+
+			&:nth-last-child(4) {
+				pointer-events: all;
+				visibility: visible;
+				grid-area: img4;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			inset: 0;
+			object-fit: cover;
+		}
+	}
+
+	&__content-wrapper {
+		margin-bottom: rem(32);
+
+		@include media(">=md") {
+			display: flex;
+			margin-bottom: rem(48);
+		}
+
+		@include media(">=lg") {
+			margin-bottom: rem(64);
+		}
+	}
+
+	&__heading {
+		@include media(">=md") {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			gap: rem(20);
+		}
+
+		h2 {
+			margin-bottom: rem(20);
+
+			@include media(">=md") {
+				max-width: rem(800);
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__content {
+		text-align: right;
+
+		@include media(">=md") {
+			min-width: fit-content;
+			margin-top: auto;
+		}
+	}
+}
