@@ -6,23 +6,21 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object       = new Block( $block );
+$name               = $block_object->block_name();
 $cil_content        = get_field( 'cil_content' );
 $cil_icons          = get_field( 'cil_icons' );
 $cil_decorator      = get_field( 'cil_decorator' );
 $cil_icons_position = get_field( 'cil_icons_position' );
 $cil_icons_style    = get_field( 'cil_icons_style' );
-$custom_block_id    = get_field( 'block_id' );
 
 $block_class  = 'acf-block content-icons-list';
 $block_class .= $cil_icons_position ? ' content-icons-list--icons-' . $cil_icons_position . '' : '';
 $block_class .= $cil_icons_style ? ' content-icons-list--' . $cil_icons_style . '' : '';
 
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
-
 if ( ! empty( $cil_content ) ) : ?>
-	<section class="<?php echo esc_attr( $block_class ); ?>"<?php echo $block_id; ?>>
-		<?php echo set_custom_block_styles( 'content-icons-list' ); ?>
+	<section class="<?php echo esc_attr( $block_class ); ?>" <?php $block_object->the_block_attributes(); ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<?php
 		if ( $cil_decorator ) {
 			get_template_part( 'parts/components/decorator' );}

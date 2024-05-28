@@ -6,19 +6,18 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+// TODO: fix buttons
+$block_object          = new Block( $block );
+$name                  = $block_object->block_name();
 $hcta_heading          = get_field( 'hcta_heading' );
 $hcta_content          = get_field( 'hcta_content' );
 $hcta_background_image = get_field( 'hcta_background_image' );
 $hcta_small_image      = get_field( 'hcta_small_image' );
 $hcta_link             = get_field( 'hcta_link' );
-$custom_block_id       = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
 
 if ( ! empty( $hcta_heading ) && ! empty( $hcta_background_image ) ) : ?>
-	<section class="acf-block hero-cta"<?php echo $block_id; ?>>
-		<?php echo set_custom_block_styles( 'hero-cta' ); ?>
+	<section class="acf-block hero-cta" <?php $block_object->the_block_attributes(); ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<div class="hero-cta__wrapper">
 			<div class="hero-cta__image-wrapper">
 				<div class="hero-cta__background-image slide-fade-in">

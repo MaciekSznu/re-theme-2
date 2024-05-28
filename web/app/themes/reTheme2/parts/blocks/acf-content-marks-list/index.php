@@ -6,23 +6,21 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+// TODO: fix icon image to icon picker
+$block_object         = new Block( $block );
+$name                 = $block_object->block_name();
 $cml_content          = get_field( 'cml_content' );
 $cml_list             = get_field( 'cml_list' );
 $cml_list_position    = get_field( 'cml_list_position' );
 $cml_background_color = get_field( 'cml_background_color' );
 $cml_icon             = get_field( 'cml_icon' );
 
-$custom_block_id = get_field( 'block_id' );
-
 $block_class      = $cml_list_position ? 'acf-block cml cml--list-' . $cml_list_position . '' : 'acf-block cml cml--list-center';
 $block_background = ! empty( $cml_background_color ) ? ' style="background: ' . $cml_background_color . ';"' : '';
 
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
-
 if ( ! empty( $cml_list ) && ! empty( $cml_content ) ) : ?>
-	<section class="<?php echo esc_attr( $block_class ); ?>"<?php echo $block_id; ?><?php echo $block_background; ?>>
-		<?php echo set_custom_block_styles( 'cml' ); ?>
+	<section class="<?php echo esc_attr( $block_class ); ?>" <?php $block_object->the_block_attributes(); ?><?php echo $block_background; ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<div class="container">
 			<div class="cml__wrapper">
 				<div class="cml__content slide-fade-in">

@@ -80,3 +80,11 @@
 .slick-slide:focus {
 	outline: none;
 }
+
+.slick-dots {
+	padding-left: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: rem(10);
+}

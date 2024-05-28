@@ -6,20 +6,20 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+// TODO: add slide classes & scripts, add form styles
+$block_object       = new Block( $block );
+$name               = $block_object->block_name();
 $cif_img            = get_field( 'cif_img' );
 $cif_heading        = get_field( 'cif_heading' );
 $cif_text           = get_field( 'cif_text' );
 $cif_form_shortcode = get_field( 'cif_form_shortcode' );
 $cif_form_position  = get_field( 'cif_form_position' );
-$custom_block_id    = get_field( 'block_id' );
 
 $block_class = $cif_form_position ? 'acf-block content-image-form content-image-form--form-left' : 'acf-block content-image-form content-image-form--form-right';
-$block_id    = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
 
 if ( ! empty( $cif_form_shortcode ) ) : ?>
-	<section class="<?php echo esc_attr( $block_class ); ?>"<?php echo $block_id; ?>>
-		<?php echo set_custom_block_styles( 'content-image-form' ); ?>
+	<section class="<?php echo esc_attr( $block_class ); ?>" <?php $block_object->the_block_attributes(); ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<div class="container">
 			<div class="content-image-form__wrapper">
 				<div class="content-image-form__form-wrapper slide-fade-in">

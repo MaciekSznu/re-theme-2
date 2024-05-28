@@ -6,16 +6,13 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
-$an_title   = get_field( 'an_title' );
-$an_numbers = get_field( 'an_numbers' );
-
-$custom_block_id = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
+$block_object = new Block( $block );
+$name         = $block_object->block_name();
+$an_title     = get_field( 'an_title' );
+$an_numbers   = get_field( 'an_numbers' );
 
 if ( ! empty( $an_numbers ) ) : ?>
-	<section class="acf-block animated-numbers"<?php echo $block_id; ?>>
+	<section class="acf-block animated-numbers" <?php $block_object->the_block_attributes(); ?>>
 		<?php load_styles( __DIR__, $name ); ?>
 		<?php $block_object->pick_block_padding_margin(); ?>
 		<?php get_template_part( 'parts/components/decorator' ); ?>

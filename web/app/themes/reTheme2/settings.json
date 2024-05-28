@@ -75,6 +75,42 @@
 			680,
 			350,
 			true
+		],
+        [
+			"content-image",
+			960,
+			9999,
+			false
+		],
+        [
+			"container-image",
+			1280,
+			9999,
+			false
+		],
+        [
+			"accent-image",
+			320,
+			180,
+			false
+		],
+        [
+			"tile-image",
+			999,
+			240,
+			false
+		],
+        [
+			"gallery",
+			640,
+			360,
+			false
+		],
+        [
+			"icon",
+			40,
+			999,
+			false
 		]
 	]
 }

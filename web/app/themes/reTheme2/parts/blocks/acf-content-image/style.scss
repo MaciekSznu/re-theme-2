@@ -124,7 +124,7 @@
 			position: relative;
 			margin-bottom: rem(20);
 			border-radius: rem(4);
-			box-shadow: $box-shadow;
+			// box-shadow: $box-shadow;
 			overflow: hidden;
 
 			@include media(">=md") {

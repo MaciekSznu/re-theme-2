@@ -6,16 +6,13 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object   = new Block( $block );
+$name           = $block_object->block_name();
 $acc_title      = get_field( 'acc_title' );
 $acc_accordions = get_field( 'acc_accordions' );
 
-$custom_block_id = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
-
 if ( ! empty( $acc_accordions ) ) : ?>
-	<section class="acf-block accordions"<?php echo $block_id; ?>>
+	<section class="acf-block accordions" <?php $block_object->the_block_attributes(); ?>>
 		<?php load_styles( __DIR__, $name ); ?>
 		<?php $block_object->pick_block_padding_margin(); ?>
 		<div class="container">

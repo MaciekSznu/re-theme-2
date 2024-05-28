@@ -6,17 +6,15 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object    = new Block( $block );
+$name            = $block_object->block_name();
 $slider_hero     = get_field( 'slider_hero' );
-$custom_block_id = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
 
 if ( ! empty( $slider_hero ) ) : ?>
-	<section class="acf-block hero"<?php echo $block_id; ?>>
-		<?php load_styles( __DIR__, $name ); ?>
+	<section class="acf-block hero" <?php $block_object->the_block_attributes(); ?>>
 		<?php load_styles_components( 'sliders' ); ?>
 		<?php load_styles_third( 'slick' ); ?>
+		<?php load_styles( __DIR__, $name ); ?>
 		<div class="hero__slider-wrapper">
 		<?php
 		foreach ( $slider_hero as $slide ) :

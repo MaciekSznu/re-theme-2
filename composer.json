@@ -38,7 +38,8 @@
 		"wp-sync-db/wp-sync-db": "^1.7.1",
         "wpackagist-plugin/regenerate-thumbnails": "^3.1",
 		"wpackagist-plugin/safe-svg": "^2.0.1",
-        "wpackagist-plugin/duplicate-post": "^4.4"
+        "wpackagist-plugin/duplicate-post": "^4.4",
+        "wpackagist-plugin/contact-form-7": "^5.9"
     },
     "require-dev": {
         "wp-cli/wp-cli": "^2.8.1",

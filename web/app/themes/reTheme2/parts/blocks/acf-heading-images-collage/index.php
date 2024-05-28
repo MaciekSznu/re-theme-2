@@ -6,19 +6,17 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object         = new Block( $block );
+$name                 = $block_object->block_name();
 $hic_hero             = get_field( 'hic_hero' );
 $hic_heading          = get_field( 'hic_heading' );
 $hic_content          = get_field( 'hic_content' );
 $hic_background_image = get_field( 'hic_background_image' );
 $hic_small_images     = get_field( 'hic_small_images' );
-$custom_block_id      = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
 
 if ( ! empty( $hic_heading ) && ! empty( $hic_background_image ) ) : ?>
-	<section class="acf-block heading-img-coll"<?php echo $block_id; ?>>
-		<?php echo set_custom_block_styles( 'heading-img-coll' ); ?>
+	<section class="acf-block heading-img-coll" <?php $block_object->the_block_attributes(); ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<div class="container">
 			<div class="heading-img-coll__wrapper">
 				<div class="heading-img-coll__content-wrapper">

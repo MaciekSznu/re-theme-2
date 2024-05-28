@@ -6,20 +6,19 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object    = new Block( $block );
+$name            = $block_object->block_name();
 $ci_img          = get_field( 'ci_img' );
 $ci_content      = get_field( 'ci_content' );
 $ci_button       = get_field( 'ci_button' );
 $ci_img_position = get_field( 'ci_img_position' );
 $ci_width        = get_field( 'ci_width' );
-$custom_block_id = get_field( 'block_id' );
 
 $block_class = $ci_img_position ? 'acf-block content-image content-image--image-left' : 'acf-block content-image content-image--image-right';
-$block_id    = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
 
 if ( ! empty( $ci_img ) && ! empty( $ci_content ) ) : ?>
-	<section class="<?php echo esc_attr( $block_class ); ?>"<?php echo $block_id; ?>>
-		<?php echo set_custom_block_styles( 'content-image' ); ?>
+	<section class="<?php echo esc_attr( $block_class ); ?>" <?php $block_object->the_block_attributes(); ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<?php if ( ! $ci_width ) : ?>
 		<div class="container">
 		<?php endif; ?>

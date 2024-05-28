@@ -6,17 +6,14 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
-$bnl_title   = get_field( 'bnl_title' );
-$bnl_numbers = get_field( 'bnl_numbers' );
-
-$custom_block_id = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
+$block_object = new Block( $block );
+$name         = $block_object->block_name();
+$bnl_title    = get_field( 'bnl_title' );
+$bnl_numbers  = get_field( 'bnl_numbers' );
 
 if ( ! empty( $bnl_numbers ) ) : ?>
-	<section class="acf-block big-numbers-list"<?php echo $block_id; ?>>
-		<?php echo set_custom_block_styles( 'big-numbers-list' ); ?>
+	<section class="acf-block big-numbers-list" <?php $block_object->the_block_attributes(); ?>>
+		<?php load_styles( __DIR__, $name ); ?>
 		<?php get_template_part( 'parts/components/decorator' ); ?>
 		<?php get_template_part( 'parts/components/decorator' ); ?>
 		<div class="container">

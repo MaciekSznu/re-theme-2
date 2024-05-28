@@ -6,14 +6,14 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object        = new Block( $block );
+$name                = $block_object->block_name();
 $bc_content          = get_field( 'bc_content' );
 $bc_background       = get_field( 'bc_background' );
 $bc_background_color = get_field( 'bc_background_color' );
 $bc_background_image = get_field( 'bc_background_image' );
 $bc_text_position    = get_field( 'bc_text_position' );
 $bc_text_color       = get_field( 'bc_text_color' );
-$custom_block_id     = get_field( 'block_id' );
 
 // $bc_decorator      = get_field( 'bc_decorator' );
 
@@ -22,10 +22,8 @@ $block_class     .= $bc_text_position ? ' background-content--text-' . $bc_text_
 $block_class     .= $bc_text_color ? ' background-content--text-' . $bc_text_color . '' : '';
 $block_background = ! $bc_background && ! empty( $bc_background_color ) ? ' style="background: ' . $bc_background_color . ';"' : '';
 
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
-
 if ( ! empty( $bc_content ) ) : ?>
-	<section class="<?php echo esc_attr( $block_class ); ?>"<?php echo $block_id; ?><?php echo $block_background; ?>>
+	<section class="<?php echo esc_attr( $block_class ); ?>" <?php $block_object->the_block_attributes(); ?><?php echo $block_background; ?>>
 		<?php load_styles( __DIR__, $name ); ?>
 		<?php $block_object->pick_block_padding_margin(); ?>
 		<?php get_template_part( 'parts/components/decorator' ); ?>

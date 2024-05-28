@@ -13,12 +13,8 @@ $sg_images_g_01 = get_field( 'sg_images_g_01' );
 $sg_title_g_02  = get_field( 'sg_title_g_02' );
 $sg_images_g_02 = get_field( 'sg_images_g_02' );
 
-$custom_block_id = get_field( 'block_id' );
-
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
-
 if ( ! empty( $sg_images_g_01 ) ) : ?>
-	<section class="acf-block slider-gallery"<?php echo $block_id; ?>>
+	<section class="acf-block slider-gallery" <?php $block_object->the_block_attributes(); ?>>
 		<?php load_styles( __DIR__, $name ); ?>
 		<?php load_styles_components( 'sliders' ); ?>
 		<?php load_styles_third( 'slick' ); ?>

@@ -6,7 +6,8 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object      = new Block( $block );
+$name              = $block_object->block_name();
 $at_content        = get_field( 'at_content' );
 $at_table          = get_field( 'at_table' );
 $at_table_headings = get_field( 'at_table_headings' );
@@ -14,14 +15,11 @@ $at_table_options  = get_field( 'at_table_options' );
 $at_decorator      = get_field( 'at_decorator' );
 $at_icons_position = get_field( 'at_icons_position' );
 $at_icons_style    = get_field( 'at_icons_style' );
-$custom_block_id   = get_field( 'block_id' );
 
 $block_class = 'acf-block apartments-table';
 
-$block_id = ! empty( $custom_block_id ) ? ' id="' . $custom_block_id . '"' : '';
-
 if ( ! empty( $at_content ) ) : ?>
-	<section class="<?php echo esc_attr( $block_class ); ?>"<?php echo $block_id; ?>>
+	<section class="<?php echo esc_attr( $block_class ); ?>" <?php $block_object->the_block_attributes(); ?>>
 		<?php load_styles( __DIR__, $name ); ?>
 		<?php $block_object->pick_block_padding_margin(); ?>
 		<?php
@@ -57,12 +55,13 @@ if ( ! empty( $at_content ) ) : ?>
 							data-area="<?php echo sanitize_table_data( $row['area'] ); ?>"
 							data-price="<?php echo sanitize_table_data( $row['price'] ); ?>"
 							data-status="<?php echo strtolower( $row['status'] ); ?>">
+							<!-- TODO: conditionally add floor, rooms -->
 						<?php
 						foreach ( $row as $item => $value ) :
-							if ( $value ) :
+							if ( $value || $item ) :
 								?>
 								<div class="apartments-table__table-row-item">
-									<?php if ( $item == 'card' ) : ?>
+									<?php if ( $item == 'card' && $value ) : ?>
 										<a href="<?php echo esc_url( $value ); ?>" title="Karta mieszkania">Karta</a>
 									<?php elseif ( $item == 'price' ) : ?>
 										<span class="price"><?php echo esc_html__( $value ); ?> zł</span>
