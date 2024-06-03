@@ -41,7 +41,9 @@ function core_block_spacings() {
 	$filtered_blocks = array_filter(
 		$blocks,
 		function ( $block ) {
-			return str_starts_with( $block['blockName'], 'core/' ) === true || str_starts_with( $block['blockName'], 'custom/' ) === true;
+			if ( isset( $block['blockName'] ) ) {
+				return str_starts_with( $block['blockName'], 'core/' ) === true || str_starts_with( $block['blockName'], 'custom/' ) === true;
+			}
 		}
 	);
 

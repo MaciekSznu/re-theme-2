@@ -1,9 +1,9 @@
 import { Slider } from '../../../js/lib/sliders';
 
 const initSliderGallery = () => {
-    [...[document.querySelectorAll('.slider-gallery__slider-wrapper')]].forEach(
+    document.querySelectorAll('.slider-gallery__slider-wrapper').forEach(
         (block) => {
-            return new Slider(block[0], {
+            return new Slider(block, {
                 autoplay: true,
                 autoplaySpeed: 4000,
                 speed: 1000,

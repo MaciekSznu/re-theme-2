@@ -6,7 +6,8 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-
+$block_object   = new Block( $block );
+$name           = $block_object->block_name();
 $sg_heading     = get_field( 'sg_heading' );
 $sg_title_g_01  = get_field( 'sg_title_g_01' );
 $sg_images_g_01 = get_field( 'sg_images_g_01' );

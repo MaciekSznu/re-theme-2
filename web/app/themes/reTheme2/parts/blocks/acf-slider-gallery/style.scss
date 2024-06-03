@@ -52,18 +52,18 @@
 		background: rgba($color-1, 0.85);
 		cursor: pointer;
 
-		&::before {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			color: $color-light;
-			background-image: url(../assets/icons/chevron.svg);
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: 100%;
-		}
+		// &::before {
+		// 	content: "";
+		// 	display: block;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	position: absolute;
+		// 	color: $color-light;
+		// 	// background-image: url(../assets/icons/chevron.svg);
+		// 	background-repeat: no-repeat;
+		// 	background-position: center;
+		// 	background-size: 100%;
+		// }
 
 		@include media(">=lg") {
 			width: rem(40);
@@ -88,6 +88,11 @@
 
 		@include media(">=lg") {
 			right: 5%;
+		}
+
+		&.slick-arrow::after {
+			border-width: rem(3) rem(3) 0 0;
+			transform: translate(-75%, -50%) rotate(45deg);
 		}
 	}
 }

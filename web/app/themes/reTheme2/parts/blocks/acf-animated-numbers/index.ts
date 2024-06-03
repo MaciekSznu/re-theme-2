@@ -17,7 +17,7 @@ const animatedNumbers = () => {
                 let current = 0;
                 let timer = setInterval(function () {
                     current += step;
-                    counter.innerHTML = `Math.floor(current)`;
+                    counter.innerHTML = `${Math.floor(current)}`;
                     if (parseInt(counter.innerHTML) >= target) {
                         clearInterval(timer);
                     }
