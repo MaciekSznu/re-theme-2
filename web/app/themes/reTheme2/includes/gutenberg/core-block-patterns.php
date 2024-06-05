@@ -16,7 +16,7 @@
 
 add_action(
 	'init',
-	function() {
+	function () {
 		remove_theme_support( 'core-block-patterns' );
 	}
 );

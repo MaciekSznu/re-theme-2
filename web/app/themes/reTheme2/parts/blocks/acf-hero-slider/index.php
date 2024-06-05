@@ -6,9 +6,9 @@
  * @subpackage re-theme
  * @since      re-theme 1.0
  */
-$block_object    = new Block( $block );
-$name            = $block_object->block_name();
-$slider_hero     = get_field( 'slider_hero' );
+$block_object = new Block( $block );
+$name         = $block_object->block_name();
+$slider_hero  = get_field( 'slider_hero' );
 
 if ( ! empty( $slider_hero ) ) : ?>
 	<section class="acf-block hero" <?php $block_object->the_block_attributes(); ?>>

@@ -51,7 +51,6 @@ function load_theme_scripts() {
 			filemtime( get_relative_path( $js_file ) ),
 			true
 		);
-
 }
 add_action( 'wp_enqueue_scripts', 'load_theme_scripts' );
 
@@ -129,7 +128,7 @@ function load_script( $path, $name, $deps = array(), $base = 'parts/components',
 
 	add_action(
 		'wp_footer',
-		function() use ( $args ) {
+		function () use ( $args ) {
 			wp_enqueue_script(
 				$args['name'],
 				get_template_directory_uri() . $args['file'] . '#asyncload',

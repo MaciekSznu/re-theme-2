@@ -24,9 +24,8 @@ function init_block_gallery_lightbox() {
 			'icon'            => 'slides',
 			'mode'            => 'edit',
 			'keywords'        => array( 'gallery', 'slider', 'images', 'lightbox' ),
-			'align'           => 'wide',
 			'supports'        => array(
-				'align' => array( 'wide', 'full' ),
+				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,
 			),
 			'render_template' => get_template_directory() . '/parts/blocks/acf-gallery-lightbox/index.php',

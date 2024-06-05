@@ -24,7 +24,6 @@ function init_block_big_numbers_list() {
 			'icon'            => 'grid-view',
 			'mode'            => 'edit',
 			'keywords'        => array( 'big', 'numbers', 'list' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

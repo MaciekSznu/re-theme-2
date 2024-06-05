@@ -24,7 +24,6 @@ function init_block_content_image_form() {
 			'icon'            => 'forms',
 			'mode'            => 'edit',
 			'keywords'        => array( 'content', 'image', 'form' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

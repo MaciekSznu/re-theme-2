@@ -24,7 +24,6 @@ function init_block_background_content() {
 			'icon'            => 'tagcloud',
 			'mode'            => 'edit',
 			'keywords'        => array( 'content', 'background', 'image' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

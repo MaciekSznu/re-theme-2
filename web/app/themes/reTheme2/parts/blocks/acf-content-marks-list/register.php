@@ -24,7 +24,6 @@ function init_block_content_marks_list() {
 			'icon'            => 'list-view',
 			'mode'            => 'edit',
 			'keywords'        => array( 'content', 'list', 'marks' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

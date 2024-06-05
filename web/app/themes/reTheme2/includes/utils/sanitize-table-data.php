@@ -10,7 +10,7 @@
 /**
  * Function that converts comma separate data to the dot separated and remove empty spaces
  *
- * @param string  $data String to truncate.
+ * @param string $data String to truncate.
  *
  * @return string Sanitized string.
  */

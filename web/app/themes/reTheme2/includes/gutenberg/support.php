@@ -49,7 +49,6 @@ function base_theme_setup_theme_supported_features() {
 
 	// Register Theme colors.
 	add_theme_support( 'editor-color-palette', get_supported_colors() );
-
 }
 add_action( 'after_setup_theme', 'base_theme_setup_theme_supported_features' );
 
@@ -60,7 +59,7 @@ function base_theme_setup_dashboard_features() {
 	get_supported_colors( 'styles' );
 }
 
-add_filter('admin_head', 'base_theme_setup_dashboard_features');
+add_filter( 'admin_head', 'base_theme_setup_dashboard_features' );
 
 /**
  * Function for generate supported colors output in array or styles string

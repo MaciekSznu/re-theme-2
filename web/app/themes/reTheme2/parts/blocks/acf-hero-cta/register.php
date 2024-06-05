@@ -24,7 +24,6 @@ function init_block_hero_cta() {
 			'icon'            => 'welcome-widgets-menus',
 			'mode'            => 'edit',
 			'keywords'        => array( 'content', 'image' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

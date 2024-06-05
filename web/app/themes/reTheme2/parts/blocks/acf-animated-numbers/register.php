@@ -24,9 +24,8 @@ function init_block_animated_numbers() {
 			'icon'            => 'calculator',
 			'mode'            => 'edit',
 			'keywords'        => array( 'animated', 'numbers' ),
-			'align'           => 'wide',
 			'supports'        => array(
-				'align' => array( 'wide', 'full' ),
+				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,
 			),
 			'render_template' => get_template_directory() . '/parts/blocks/acf-animated-numbers/index.php',

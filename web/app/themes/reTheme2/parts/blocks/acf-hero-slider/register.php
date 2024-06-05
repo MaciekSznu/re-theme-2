@@ -6,7 +6,6 @@
  * @subpackage reTheme2
  * @since      reTheme2 1.0
  */
-
 function init_block_hero_slider() {
 	if ( ! function_exists( 'acf_register_block_type' ) ) {
 		return;
@@ -21,7 +20,6 @@ function init_block_hero_slider() {
 			'icon'            => 'media-code',
 			'mode'            => 'edit',
 			'keywords'        => array( 'hero', 'slider' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

@@ -77,7 +77,7 @@ function core_block_spacings() {
 
 		$style_content .= add_block_spacing_styles( $block_id, $padding_mobile, $padding_tablet, $padding_desktop, $spacing_mobile, $spacing_tablet, $spacing_desktop );
 
-	};
+	}
 
 	$html = ' <style> ' . $style_content . ' </style> ';
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

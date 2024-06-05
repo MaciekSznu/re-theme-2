@@ -24,7 +24,6 @@ function init_block_heading_images_collage() {
 			'icon'            => 'layout',
 			'mode'            => 'edit',
 			'keywords'        => array( 'call to action', 'cta' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

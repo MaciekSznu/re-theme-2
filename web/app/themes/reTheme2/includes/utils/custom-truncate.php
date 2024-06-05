@@ -63,7 +63,7 @@ function truncate_html( $text, $length = 100, $ending = '...', $exact = false, $
 					// calculate the real length of all entities in the legal range.
 					foreach ( $entities[0] as $entity ) {
 						if ( $entity[1] + 1 - $entities_length <= $left ) {
-							$left--;
+							--$left;
 							$entities_length += strlen( $entity[0] );
 						} else {
 							// no more characters left.
@@ -83,12 +83,10 @@ function truncate_html( $text, $length = 100, $ending = '...', $exact = false, $
 				break;
 			}
 		}
-	} else {
-		if ( strlen( $text ) <= $length ) {
+	} elseif ( strlen( $text ) <= $length ) {
 			return $text;
-		} else {
-			$truncate = substr( $text, 0, $length - strlen( $ending ) );
-		}
+	} else {
+		$truncate = substr( $text, 0, $length - strlen( $ending ) );
 	}
 	// if the words shouldn't be cut in the middle...
 	if ( ! $exact ) {

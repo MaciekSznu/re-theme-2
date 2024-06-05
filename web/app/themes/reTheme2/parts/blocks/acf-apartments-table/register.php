@@ -24,7 +24,6 @@ function init_block_apartments_table() {
 			'icon'            => 'editor-table',
 			'mode'            => 'edit',
 			'keywords'        => array( 'apartments', 'table' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

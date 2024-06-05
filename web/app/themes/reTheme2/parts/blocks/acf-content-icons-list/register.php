@@ -24,7 +24,6 @@ function init_block_content_icons_list() {
 			'icon'            => 'editor-table',
 			'mode'            => 'edit',
 			'keywords'        => array( 'content', 'list', 'icons' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

@@ -24,7 +24,6 @@ function init_block_content_image() {
 			'icon'            => 'align-pull-right',
 			'mode'            => 'edit',
 			'keywords'        => array( 'content', 'image' ),
-			'align'           => 'wide',
 			'supports'        => array(
 				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,

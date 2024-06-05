@@ -225,62 +225,62 @@ function my_acf_blocks_init() {
 
 		// Register a developer block.
 		// acf_register_block_type(
-		// 	array(
-		// 		'name'            => 'developer',
-		// 		'title'           => __( 'Developer' ),
-		// 		'description'     => __( 'A custom Developer block.' ),
-		// 		'render_template' => 'template-parts/blocks/acf-developer/index.php',
-		// 		'category'        => 'layout',
-		// 		'icon'            => 'editor-justify',
-		// 		'keywords'        => array( 'developer', 'content' ),
-		// 		'mode'            => 'auto',
-		// 		'align'           => 'wide',
-		// 	)
+		// array(
+		// 'name'            => 'developer',
+		// 'title'           => __( 'Developer' ),
+		// 'description'     => __( 'A custom Developer block.' ),
+		// 'render_template' => 'template-parts/blocks/acf-developer/index.php',
+		// 'category'        => 'layout',
+		// 'icon'            => 'editor-justify',
+		// 'keywords'        => array( 'developer', 'content' ),
+		// 'mode'            => 'auto',
+		// 'align'           => 'wide',
+		// )
 		// );
 
 		// Register a gallery block.
 		// acf_register_block_type(
-		// 	array(
-		// 		'name'            => 'gallery',
-		// 		'title'           => __( 'Gallery' ),
-		// 		'description'     => __( 'A custom Gallery block.' ),
-		// 		'render_template' => 'template-parts/blocks/acf-gallery/index.php',
-		// 		'category'        => 'layout',
-		// 		'icon'            => 'format-gallery',
-		// 		'keywords'        => array( 'gallery' ),
-		// 		'mode'            => 'auto',
-		// 		'align'           => 'wide',
-		// 	)
+		// array(
+		// 'name'            => 'gallery',
+		// 'title'           => __( 'Gallery' ),
+		// 'description'     => __( 'A custom Gallery block.' ),
+		// 'render_template' => 'template-parts/blocks/acf-gallery/index.php',
+		// 'category'        => 'layout',
+		// 'icon'            => 'format-gallery',
+		// 'keywords'        => array( 'gallery' ),
+		// 'mode'            => 'auto',
+		// 'align'           => 'wide',
+		// )
 		// );
 
 		// Register a localization block.
 		// acf_register_block_type(
-		// 	array(
-		// 		'name'            => 'localization',
-		// 		'title'           => __( 'Localization' ),
-		// 		'description'     => __( 'A custom Localization block.' ),
-		// 		'render_template' => 'template-parts/blocks/acf-localization/index.php',
-		// 		'category'        => 'layout',
-		// 		'icon'            => 'editor-insertmore',
-		// 		'keywords'        => array( 'localization', 'list', 'icons', 'content' ),
-		// 		'mode'            => 'auto',
-		// 		'align'           => 'wide',
-		// 	)
+		// array(
+		// 'name'            => 'localization',
+		// 'title'           => __( 'Localization' ),
+		// 'description'     => __( 'A custom Localization block.' ),
+		// 'render_template' => 'template-parts/blocks/acf-localization/index.php',
+		// 'category'        => 'layout',
+		// 'icon'            => 'editor-insertmore',
+		// 'keywords'        => array( 'localization', 'list', 'icons', 'content' ),
+		// 'mode'            => 'auto',
+		// 'align'           => 'wide',
+		// )
 		// );
 
 		// Register a apartments block.
 		// acf_register_block_type(
-		// 	array(
-		// 		'name'            => 'apartments',
-		// 		'title'           => __( 'Apartments' ),
-		// 		'description'     => __( 'A custom Apartments block.' ),
-		// 		'render_template' => 'template-parts/blocks/acf-apartments/index.php',
-		// 		'category'        => 'layout',
-		// 		'icon'            => 'editor-insertmore',
-		// 		'keywords'        => array( 'apartments', 'table', 'icons', 'content' ),
-		// 		'mode'            => 'auto',
-		// 		'align'           => 'wide',
-		// 	)
+		// array(
+		// 'name'            => 'apartments',
+		// 'title'           => __( 'Apartments' ),
+		// 'description'     => __( 'A custom Apartments block.' ),
+		// 'render_template' => 'template-parts/blocks/acf-apartments/index.php',
+		// 'category'        => 'layout',
+		// 'icon'            => 'editor-insertmore',
+		// 'keywords'        => array( 'apartments', 'table', 'icons', 'content' ),
+		// 'mode'            => 'auto',
+		// 'align'           => 'wide',
+		// )
 		// );
 	}
 }

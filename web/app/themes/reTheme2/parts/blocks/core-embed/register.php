@@ -13,7 +13,6 @@
  * @param string $block_content The block content about to be appended.
  * @param array  $block The full block, including name and attributes.
  */
-
 function wrap_embed_block( $block_content, $block ) {
 	if ( 'core/embed' === $block['blockName'] || 'core-embed/wordpress' === $block['blockName'] ) {
 		$block_content = '<div data-styles-id="core-embed"></div>' . $block_content;

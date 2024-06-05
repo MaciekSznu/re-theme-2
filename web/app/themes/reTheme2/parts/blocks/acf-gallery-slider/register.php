@@ -24,9 +24,8 @@ function init_block_gallery_slider() {
 			'icon'            => 'slides',
 			'mode'            => 'edit',
 			'keywords'        => array( 'gallery', 'slider', 'images' ),
-			'align'           => 'full',
 			'supports'        => array(
-				'align'  => array( 'full' ),
+				'align'  => array( 'wide', 'full' ),
 				'anchor' => true,
 			),
 			'render_template' => get_template_directory() . '/parts/blocks/acf-gallery-slider/index.php',

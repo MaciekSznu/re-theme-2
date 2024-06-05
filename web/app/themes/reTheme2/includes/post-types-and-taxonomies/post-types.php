@@ -65,6 +65,27 @@ function get_labels( string $singular, string $plural = '', string $menu_name = 
 }
 
 /**
+ * Register Apartment post type.
+ */
+function apartment() {
+	register_post_type(
+		'apartment',
+		array(
+			'label'       	=> __( 'Apartment', 'reTheme2' ),
+			'labels'      	=> get_labels( 'Apartment', 'Apartments' ),
+			'supports'    	=> array( 'title', 'revisions', 'editor', 'thumbnail',  ),
+			'taxonomies'  	=> array(),
+			'public'      	=> true,
+			'menu_icon'   	=> 'dashicons-insert',
+			'has_archive' 	=> false,
+			'show_in_rest' 	=> true,
+		)
+	);
+}
+
+add_action( 'init', 'reTheme2\PostTypes\apartment' );
+
+/**
  * Register Gallery post type.
  */
 // function gallery() {
