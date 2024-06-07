@@ -17,6 +17,7 @@ const apartmentsSearch = () => {
             const apBathsNumber = target.dataset.apBathsNumber ? target.dataset.apBathsNumber : '';
             const apArea = target.dataset.apArea ? target.dataset.apArea : '';
             const apPrice = target.dataset.apPrice ? target.dataset.apPrice : '';
+            const apUrl = target.dataset.apUrl ? target.dataset.apUrl : '';
             const modalApStatus = searchModal.querySelector('[data-ap-status]');
             if (modalApStatus) {
                 modalApStatus.innerHTML = apStatus.charAt(0).toUpperCase() + apStatus.slice(1);
@@ -40,9 +41,14 @@ const apartmentsSearch = () => {
             const modalApArea = searchModal.querySelector('[data-ap-area]');
             if (modalApArea) {
                 modalApArea.innerHTML = apArea;
-            }const modalApPrice = searchModal.querySelector('[data-ap-price]');
+            }
+            const modalApPrice = searchModal.querySelector('[data-ap-price]');
             if (modalApPrice) {
                 modalApPrice.innerHTML = apPrice;
+            }
+            const modalApUrl = searchModal.querySelector<HTMLAnchorElement>('[data-ap-url]');
+            if (modalApUrl) {
+                modalApUrl.href = apUrl;
             }
         });
     });
