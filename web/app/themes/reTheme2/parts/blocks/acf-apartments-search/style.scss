@@ -193,7 +193,9 @@
 		transition: grid-template-rows $default-transition;
 		&.room-hidden,
 		&.floor-hidden,
-		&.status-hidden {
+		&.status-hidden,
+		&.area-hidden,
+		&.price-hidden {
 			grid-template-rows: 0fr;
 		}
 	}

@@ -1,3 +1,5 @@
+import 'toolcool-range-slider';
+
 const apartmentsSearch = () => {
     const dotsWrapper = document.querySelector(
         '.apartments-search__dots-wrapper'
@@ -96,7 +98,11 @@ const apartmentsTable = () => {
         return;
     }
 
-    const filterButtons = tableFilters.querySelectorAll<HTMLButtonElement>('button.filter-button');
+    const filterButtons = tableFilters.querySelectorAll<HTMLButtonElement>(
+        'button.filter-button'
+    );
+    const filterSliderArea = tableFilters.querySelector('#area-slider');
+    const filterSliderPrice = tableFilters.querySelector('#price-slider');
 
     filterButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
@@ -141,16 +147,14 @@ const apartmentsTable = () => {
             if (button.dataset.apStatus) {
                 if (button.classList.contains('active')) {
                     tableRows.forEach((row) => {
-                        row.dataset.apStatus ===
-                        button.dataset.apStatus
+                        row.dataset.apStatus === button.dataset.apStatus
                             ? row.classList.remove('status-hidden')
                             : null;
                     });
                     button.classList.remove('active');
                 } else {
                     tableRows.forEach((row) => {
-                        row.dataset.apStatus ===
-                        button.dataset.apStatus
+                        row.dataset.apStatus === button.dataset.apStatus
                             ? row.classList.add('status-hidden')
                             : null;
                     });
@@ -159,6 +163,36 @@ const apartmentsTable = () => {
             }
         });
     });
+
+    if (filterSliderArea) {
+        filterSliderArea.addEventListener('change', (e) => {
+            tableRows.forEach((row) => {
+                if (
+                    e.detail.value1 > row.dataset.apArea ||
+                    e.detail.value2 < row.dataset.apArea
+                ) {
+                    row.classList.add('area-hidden');
+                } else {
+                    row.classList.remove('area-hidden');
+                }
+            });
+        });
+    }
+
+    if (filterSliderPrice) {
+        filterSliderPrice.addEventListener('change', (e) => {
+            tableRows.forEach((row) => {
+                if (
+                    e.detail.value1 > row.dataset.apPrice ||
+                    e.detail.value2 < row.dataset.apPrice
+                ) {
+                    row.classList.add('price-hidden');
+                } else {
+                    row.classList.remove('price-hidden');
+                }
+            });
+        });
+    }
 };
 
 apartmentsTable();

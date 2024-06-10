@@ -47,6 +47,8 @@ foreach ( $all_apartments as $apartment ) {
 		$areas[] = $ap_area;
 	}
 	$ap_price = get_field( 'ap_price', $apartment_id );
+	$ap_price = str_replace( ' ', '', $ap_price );
+	$ap_price = str_replace( ',', '.', $ap_price );
 	if ( ! in_array( $ap_price, $prices ) ) {
 		$prices[] = $ap_price;
 	}
@@ -189,8 +191,13 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						<div class="filter">
 							<h5 class="filter__heading">Powierzchnia</h5>
 							<div class="filter__buttons">
-								<button type="button" class="filter-button" data-ap-area=""><?php echo esc_html( min($areas) ); ?></button>
-								<button type="button" class="filter-button" data-ap-area=""><?php echo esc_html( max($areas) ); ?></button>
+								<tc-range-slider
+									id="area-slider"
+									min="<?php echo esc_html( min( $areas ) ); ?>"
+									max="<?php echo esc_html( max( $areas ) ); ?>"
+									value1="<?php echo esc_html( min( $areas ) ); ?>"
+									value2="<?php echo esc_html( max( $areas ) ); ?>"
+								></tc-range-slider>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -198,8 +205,13 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						<div class="filter">
 							<h5 class="filter__heading">Cena</h5>
 							<div class="filter__buttons">
-								<button type="button" class="filter-button" data-ap-price=""><?php echo esc_html( min($prices) ); ?></button>
-								<button type="button" class="filter-button" data-ap-price=""><?php echo esc_html( max($prices) ); ?></button>
+								<tc-range-slider
+									id="price-slider"
+									min="<?php echo esc_html( min( $prices ) ); ?>"
+									max="<?php echo esc_html( max( $prices ) ); ?>"
+									value1="<?php echo esc_html( min( $prices ) ); ?>"
+									value2="<?php echo esc_html( max( $prices ) ); ?>"
+								></tc-range-slider>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -214,41 +226,43 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 					<div class="apartments-search__table-col">Status</div>
 					<div class="apartments-search__table-col">Szczegóły</div>
 				</div>
-						<?php
-						foreach ( $all_apartments as $row ) :
-							$row_apartment_id = $row->ID;
-							$ap_status        = get_field( 'ap_status', $row_apartment_id );
-							$ap_number        = get_field( 'ap_number', $row_apartment_id );
-							$ap_floor_number  = get_field( 'ap_floor_number', $row_apartment_id );
-							$ap_rooms_number  = get_field( 'ap_rooms_number', $row_apartment_id );
-							$ap_baths_number  = get_field( 'ap_baths_number', $row_apartment_id );
-							$ap_area          = get_field( 'ap_area', $row_apartment_id );
-							$ap_price         = get_field( 'ap_price', $row_apartment_id );
-							$ap_url           = get_permalink( $row_apartment_id );
-							$color;
-							$status_string;
-							switch ( $ap_status ) {
-								case 1:
-									$color         = '#ffc100';
-									$status_string = 'zarezerwowany';
-									break;
-								case 2:
-									$color         = '#ff0000';
-									$status_string = 'sprzedany';
-									break;
-								default:
-									$color         = '#b5e550';
-									$status_string = 'dostępny';
-							}
-							$style = "color: $color;"
-							?>
+					<?php
+					foreach ( $all_apartments as $row ) :
+						$row_apartment_id   = $row->ID;
+						$ap_status          = get_field( 'ap_status', $row_apartment_id );
+						$ap_number          = get_field( 'ap_number', $row_apartment_id );
+						$ap_floor_number    = get_field( 'ap_floor_number', $row_apartment_id );
+						$ap_rooms_number    = get_field( 'ap_rooms_number', $row_apartment_id );
+						$ap_baths_number    = get_field( 'ap_baths_number', $row_apartment_id );
+						$ap_area            = get_field( 'ap_area', $row_apartment_id );
+						$ap_price           = get_field( 'ap_price', $row_apartment_id );
+						$ap_url             = get_permalink( $row_apartment_id );
+						$ap_price_sanitized = str_replace( ' ', '', $ap_price );
+						$ap_price_sanitized = str_replace( ',', '.', $ap_price_sanitized );
+						$color;
+						$status_string;
+						switch ( $ap_status ) {
+							case 1:
+								$color         = '#ffc100';
+								$status_string = 'zarezerwowany';
+								break;
+							case 2:
+								$color         = '#ff0000';
+								$status_string = 'sprzedany';
+								break;
+							default:
+								$color         = '#b5e550';
+								$status_string = 'dostępny';
+						}
+						$style = "color: $color;"
+						?>
 					<div class="apartments-search__table-row"
 						data-ap-number="<?php echo esc_attr( $ap_number ); ?>"
 						data-ap-floor-number="<?php echo esc_attr( $ap_floor_number ); ?>"
 						data-ap-rooms-number="<?php echo esc_attr( $ap_rooms_number ); ?>"
 						data-ap-baths-number="<?php echo esc_attr( $ap_baths_number ); ?>"
 						data-ap-area="<?php echo esc_attr( $ap_area ); ?>"
-						data-ap-price="<?php echo esc_attr( $ap_price ); ?>"
+						data-ap-price="<?php echo esc_attr( $ap_price_sanitized ); ?>"
 						data-ap-status="<?php echo esc_attr( $ap_status ); ?>"
 					>
 						<div class="apartments-search__table-cols-wrapper">
@@ -262,9 +276,7 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 							<div class="apartments-search__table-col"><a href="<?php echo esc_url( $ap_url ); ?>">Zobacz</a></div>
 						</div>
 					</div>
-							<?php
-				endforeach;
-						?>
+					<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
