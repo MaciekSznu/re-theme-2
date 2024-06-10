@@ -170,7 +170,7 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 							<h5 class="filter__heading">Piętro</h5>
 							<div class="filter__buttons">
 							<?php foreach ( $floors as $floor ) : ?>
-								<button type="button" class="filter-button" data-ap-floors-number="<?php echo esc_attr( $floor ); ?>"><?php echo esc_html( $floor ); ?></button>
+								<button type="button" class="filter-button" data-ap-floor-number="<?php echo esc_attr( $floor ); ?>"><?php echo esc_html( $floor ); ?></button>
 							<?php endforeach; ?>
 							</div>
 						</div>
@@ -198,8 +198,8 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						<div class="filter">
 							<h5 class="filter__heading">Cena</h5>
 							<div class="filter__buttons">
-								<button type="button" class="filter-button" data-ap-area=""><?php echo esc_html( min($prices) ); ?></button>
-								<button type="button" class="filter-button" data-ap-area=""><?php echo esc_html( max($prices) ); ?></button>
+								<button type="button" class="filter-button" data-ap-price=""><?php echo esc_html( min($prices) ); ?></button>
+								<button type="button" class="filter-button" data-ap-price=""><?php echo esc_html( max($prices) ); ?></button>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -251,14 +251,16 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						data-ap-price="<?php echo esc_attr( $ap_price ); ?>"
 						data-ap-status="<?php echo esc_attr( $ap_status ); ?>"
 					>
-						<div class="apartments-search__table-col"><?php echo esc_attr( $ap_number ); ?></div>
-						<div class="apartments-search__table-col"><?php echo esc_attr( $ap_floor_number ); ?></div>
-						<div class="apartments-search__table-col"><?php echo esc_attr( $ap_rooms_number ); ?></div>
-						<div class="apartments-search__table-col"><?php echo esc_attr( $ap_baths_number ); ?></div>
-						<div class="apartments-search__table-col"><?php echo esc_attr( $ap_area ); ?> m<sup>2</sup></div>
-						<div class="apartments-search__table-col"><?php echo esc_attr( $ap_price ); ?> zł</div>
-						<div class="apartments-search__table-col" style="<?php echo $style; ?>"><?php echo esc_attr( $status_string ); ?></div>
-						<div class="apartments-search__table-col"><a href="<?php echo esc_url( $ap_url ); ?>">Zobacz</a></div>
+						<div class="apartments-search__table-cols-wrapper">
+							<div class="apartments-search__table-col"><?php echo esc_attr( $ap_number ); ?></div>
+							<div class="apartments-search__table-col"><?php echo esc_attr( $ap_floor_number ); ?></div>
+							<div class="apartments-search__table-col"><?php echo esc_attr( $ap_rooms_number ); ?></div>
+							<div class="apartments-search__table-col"><?php echo esc_attr( $ap_baths_number ); ?></div>
+							<div class="apartments-search__table-col"><?php echo esc_attr( $ap_area ); ?> m<sup>2</sup></div>
+							<div class="apartments-search__table-col"><?php echo esc_attr( $ap_price ); ?> zł</div>
+							<div class="apartments-search__table-col" style="<?php echo $style; ?>"><?php echo esc_attr( $status_string ); ?></div>
+							<div class="apartments-search__table-col"><a href="<?php echo esc_url( $ap_url ); ?>">Zobacz</a></div>
+						</div>
 					</div>
 							<?php
 				endforeach;

@@ -177,10 +177,25 @@
 		}
 	}
 
-	&__table-row,
+	&__table-cols-wrapper,
 	&__table-header {
 		display: grid;
 		grid-template-columns: repeat(8, 1fr);
+	}
+
+	&__table-cols-wrapper {
+		overflow: hidden;
+	}
+
+	&__table-row {
+		display: grid;
+		grid-template-rows: 1fr;
+		transition: grid-template-rows $default-transition;
+		&.room-hidden,
+		&.floor-hidden,
+		&.status-hidden {
+			grid-template-rows: 0fr;
+		}
 	}
 }
 
