@@ -49,10 +49,11 @@
 		"backstop-reference": "backstop reference --config=backstop.js"
 	},
 	"dependencies": {
+		"@types/ion-rangeslider": "^2.3.5",
 		"@types/lodash": "^4.14.195",
 		"gulp-stripbom": "^1.0.5",
 		"highlight.js": "^11.9.0",
-		"lodash": "^4.17.15",
-		"toolcool-range-slider": "^4.0.28"
+		"ion-rangeslider": "^2.3.1",
+		"lodash": "^4.17.15"
 	}
 }

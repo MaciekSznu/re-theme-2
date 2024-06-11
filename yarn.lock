@@ -1603,6 +1603,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/ion-rangeslider@^2.3.5":
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/@types/ion-rangeslider/-/ion-rangeslider-2.3.5.tgz#fe1f0b47afad09d9937e8e6692aa990be3467bcb"
+  integrity sha512-ikG2m+7qjhIeL407d2Gi5TuH1GqPvh5QqO9AB6MET3berrJ/V3KJD2WjMnn9GKINokM7kWjtjJGm0BeSamWOTg==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"
@@ -5864,6 +5869,11 @@ invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
   integrity sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
+
+ion-rangeslider@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/ion-rangeslider/-/ion-rangeslider-2.3.1.tgz#92ade52cb56fc30b9162d0483ff02b6f9ed237c2"
+  integrity sha512-6V+24FD13/feliI485gnRHZYD9Ev64M5NAFTxnVib516ATHa9PlXQrC+nOiPngouRYTCLPJyokAJEi3e1Umi5g==
 
 ip-address@^9.0.5:
   version "9.0.5"
@@ -10537,11 +10547,6 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
-
-toolcool-range-slider@^4.0.28:
-  version "4.0.28"
-  resolved "https://registry.yarnpkg.com/toolcool-range-slider/-/toolcool-range-slider-4.0.28.tgz#98ba6db1738c6be4c5af338550b4597a97987dcf"
-  integrity sha512-DDZAEJ9hItgSbGWY6DkjvMoUBLZG9J3X6qvBzAruvGzcPwrZKRt3EB2ixPqFmrpEy98SyyM+WZbKL0+TR4fOkg==
 
 tough-cookie@^2.3.3, tough-cookie@~2.5.0:
   version "2.5.0"

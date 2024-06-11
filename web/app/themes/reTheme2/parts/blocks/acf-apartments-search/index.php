@@ -61,6 +61,7 @@ foreach ( $all_apartments as $apartment ) {
 if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 	<section class="acf-block apartments-search" <?php $block_object->the_block_attributes(); ?>>
 		<?php load_styles( __DIR__, $name ); ?>
+		<?php load_styles_third( 'ion' ); ?>
 		<?php $block_object->pick_block_padding_margin(); ?>
 		<!-- TODO: add decorator? or remove from the fields -->
 		<div class="container">
@@ -191,13 +192,15 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						<div class="filter">
 							<h5 class="filter__heading">Powierzchnia</h5>
 							<div class="filter__buttons">
-								<tc-range-slider
-									id="area-slider"
-									min="<?php echo esc_html( min( $areas ) ); ?>"
-									max="<?php echo esc_html( max( $areas ) ); ?>"
-									value1="<?php echo esc_html( min( $areas ) ); ?>"
-									value2="<?php echo esc_html( max( $areas ) ); ?>"
-								></tc-range-slider>
+								<input type="text" id="ion-area-slider" name="area-slider" value=""
+									data-min="<?php echo esc_html( min( $areas ) ); ?>"
+									data-max="<?php echo esc_html( max( $areas ) ); ?>"
+									data-from="<?php echo esc_html( min( $areas ) ); ?>"
+									data-to="<?php echo esc_html( max( $areas ) ); ?>"
+									data-type="double"
+									data-skin="big"
+									data-step="1"
+								/>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -205,13 +208,15 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						<div class="filter">
 							<h5 class="filter__heading">Cena</h5>
 							<div class="filter__buttons">
-								<tc-range-slider
-									id="price-slider"
-									min="<?php echo esc_html( min( $prices ) ); ?>"
-									max="<?php echo esc_html( max( $prices ) ); ?>"
-									value1="<?php echo esc_html( min( $prices ) ); ?>"
-									value2="<?php echo esc_html( max( $prices ) ); ?>"
-								></tc-range-slider>
+								<input type="text" id="ion-price-slider" name="price-slider" value=""
+									data-min="<?php echo esc_html( min( $prices ) ); ?>"
+									data-max="<?php echo esc_html( max( $prices ) ); ?>"
+									data-from="<?php echo esc_html( min( $prices ) ); ?>"
+									data-to="<?php echo esc_html( max( $prices ) ); ?>"
+									data-type="double"
+									data-skin="big"
+									data-step="5000"
+								/>
 							</div>
 						</div>
 					<?php endif; ?>

@@ -38,6 +38,10 @@ const settings = {
         filename: '[name].min.js',
     },
 
+    externals: {
+        "jquery": "jQuery"
+    },
+
     resolve: {
         extensions: ['.js', '.ts', '.tsx'],
         alias: {

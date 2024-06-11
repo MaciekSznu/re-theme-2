@@ -1,4 +1,5 @@
-import 'toolcool-range-slider';
+const $ = jQuery.noConflict();
+import 'ion-rangeslider';
 
 const apartmentsSearch = () => {
     const dotsWrapper = document.querySelector(
@@ -101,8 +102,6 @@ const apartmentsTable = () => {
     const filterButtons = tableFilters.querySelectorAll<HTMLButtonElement>(
         'button.filter-button'
     );
-    const filterSliderArea = tableFilters.querySelector('#area-slider');
-    const filterSliderPrice = tableFilters.querySelector('#price-slider');
 
     filterButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
@@ -164,35 +163,36 @@ const apartmentsTable = () => {
         });
     });
 
-    if (filterSliderArea) {
-        filterSliderArea.addEventListener('change', (e) => {
+    $('#ion-area-slider').ionRangeSlider({
+        onFinish: function (data) {
             tableRows.forEach((row) => {
                 if (
-                    e.detail.value1 > row.dataset.apArea ||
-                    e.detail.value2 < row.dataset.apArea
+                    row.dataset.apArea &&
+                    (data.from > parseFloat(row.dataset.apArea) ||
+                        data.to < parseFloat(row.dataset.apArea))
                 ) {
                     row.classList.add('area-hidden');
                 } else {
                     row.classList.remove('area-hidden');
                 }
             });
-        });
-    }
-
-    if (filterSliderPrice) {
-        filterSliderPrice.addEventListener('change', (e) => {
+        },
+    });
+    $('#ion-price-slider').ionRangeSlider({
+        onFinish: function (data) {
             tableRows.forEach((row) => {
                 if (
-                    e.detail.value1 > row.dataset.apPrice ||
-                    e.detail.value2 < row.dataset.apPrice
+                    row.dataset.apPrice &&
+                    (data.from > parseFloat(row.dataset.apPrice) ||
+                        data.to < parseFloat(row.dataset.apPrice))
                 ) {
                     row.classList.add('price-hidden');
                 } else {
                     row.classList.remove('price-hidden');
                 }
             });
-        });
-    }
+        },
+    });
 };
 
 apartmentsTable();
