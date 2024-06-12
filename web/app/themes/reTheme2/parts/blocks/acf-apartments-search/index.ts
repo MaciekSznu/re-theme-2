@@ -103,59 +103,94 @@ const apartmentsTable = () => {
         'button.filter-button'
     );
 
+    const activeFloors: string[] = [];
+    const activeRooms: string[] = [];
+    const activeStatuses: string[] = [];
+
     filterButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
             if (button.dataset.apFloorNumber) {
                 if (button.classList.contains('active')) {
-                    tableRows.forEach((row) => {
-                        row.dataset.apFloorNumber ===
+                    const btnDataIndex = activeFloors.indexOf(
                         button.dataset.apFloorNumber
-                            ? row.classList.remove('floor-hidden')
-                            : null;
-                    });
+                    );
+                    activeFloors.splice(btnDataIndex, 1);
+                    if (activeFloors.length > 0) {
+                        tableRows.forEach((row) => {
+                            row.dataset.apFloorNumber ===
+                            button.dataset.apFloorNumber
+                                ? row.classList.add('floor-hidden')
+                                : null;
+                        });
+                    } else {
+                        tableRows.forEach((row) => {
+                            row.classList.remove('floor-hidden');
+                        });
+                    }
                     button.classList.remove('active');
                 } else {
+                    activeFloors.push(button.dataset.apFloorNumber);
                     tableRows.forEach((row) => {
-                        row.dataset.apFloorNumber ===
-                        button.dataset.apFloorNumber
+                        !activeFloors.includes(row.dataset.apFloorNumber)
                             ? row.classList.add('floor-hidden')
-                            : null;
+                            : row.classList.remove('floor-hidden');
                     });
                     button.classList.add('active');
                 }
             }
             if (button.dataset.apRoomsNumber) {
                 if (button.classList.contains('active')) {
-                    tableRows.forEach((row) => {
-                        row.dataset.apRoomsNumber ===
+                    const btnDataIndex = activeRooms.indexOf(
                         button.dataset.apRoomsNumber
-                            ? row.classList.remove('room-hidden')
-                            : null;
-                    });
+                    );
+                    activeRooms.splice(btnDataIndex, 1);
+                    if (activeRooms.length > 0) {
+                        tableRows.forEach((row) => {
+                            row.dataset.apRoomsNumber ===
+                            button.dataset.apRoomsNumber
+                                ? row.classList.add('room-hidden')
+                                : null;
+                        });
+                    } else {
+                        tableRows.forEach((row) => {
+                            row.classList.remove('room-hidden');
+                        });
+                    }
                     button.classList.remove('active');
                 } else {
+                    activeRooms.push(button.dataset.apRoomsNumber);
                     tableRows.forEach((row) => {
-                        row.dataset.apRoomsNumber ===
-                        button.dataset.apRoomsNumber
+                        !activeRooms.includes(row.dataset.apRoomsNumber)
                             ? row.classList.add('room-hidden')
-                            : null;
+                            : row.classList.remove('room-hidden');
                     });
                     button.classList.add('active');
                 }
             }
             if (button.dataset.apStatus) {
                 if (button.classList.contains('active')) {
-                    tableRows.forEach((row) => {
-                        row.dataset.apStatus === button.dataset.apStatus
-                            ? row.classList.remove('status-hidden')
-                            : null;
-                    });
+                    const btnDataIndex = activeStatuses.indexOf(
+                        button.dataset.apStatus
+                    );
+                    activeStatuses.splice(btnDataIndex, 1);
+                    if (activeStatuses.length > 0) {
+                        tableRows.forEach((row) => {
+                            row.dataset.apStatus === button.dataset.apStatus
+                                ? row.classList.add('status-hidden')
+                                : null;
+                        });
+                    } else {
+                        tableRows.forEach((row) => {
+                            row.classList.remove('status-hidden');
+                        });
+                    }
                     button.classList.remove('active');
                 } else {
+                    activeStatuses.push(button.dataset.apStatus);
                     tableRows.forEach((row) => {
-                        row.dataset.apStatus === button.dataset.apStatus
+                        !activeStatuses.includes(row.dataset.apStatus)
                             ? row.classList.add('status-hidden')
-                            : null;
+                            : row.classList.remove('status-hidden');
                     });
                     button.classList.add('active');
                 }

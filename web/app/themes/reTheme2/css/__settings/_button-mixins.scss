@@ -8,49 +8,60 @@
 	cursor: pointer;
 	appearance: none;
 	column-gap: rem(10);
+	transition: all $default-transition;
+
+	&--small {
+		font-size: rem(14);
+		line-height: rem(14);
+	}
 }
 
 @mixin button-primary() {
 	padding: rem(14) rem(28);
-	border: rem(2) solid $color-4;
-	border-radius: rem(100);
-	background-color: $color-4;
-	color: $text-color-base;
-
-	&:hover,
-	&:focus {
-		background-color: $color-5;
-		border-color: $color-5;
-		color: $color-1;
-	}
-}
-
-@mixin button-secondary() {
-	padding: rem(14) rem(28);
 	border: rem(2) solid $color-5;
-	border-radius: rem(100);
+	border-radius: rem(8);
 	background-color: $color-5;
-	color: $text-color-base;
-	color: $color-1;
+	color: $text-light;
 
 	&:hover,
 	&:focus {
 		background-color: $color-4;
 		border-color: $color-4;
+		color: $text-light;
+	}
+}
+
+@mixin button-secondary() {
+	padding: rem(14) rem(28);
+	border: rem(2) solid $color-4;
+	border-radius: rem(8);
+	background-color: $color-4;
+	color: $text-light;
+
+	&:hover,
+	&:focus {
+		background-color: $color-3;
+		color: $text-color-base;
 	}
 }
 
 @mixin button-tertiary() {
 	padding: rem(14) rem(28);
-	border: rem(2) solid $link-color;
-	border-radius: rem(100);
-	background-color: $link-color;
+	border: rem(2) solid $color-1;
+	border-radius: rem(8);
+	background-color: $color-1;
 	color: $text-color-base;
 
 	&:hover,
 	&:focus {
-		background-color: $link-hover-color;
-		border-color: $link-hover-color;
-		color: $color-1;
+		border-color: $color-5;
+		// color: $text-light;
 	}
+}
+
+@mixin button-small() {
+	padding: rem(4) rem(8);
+	border-radius: rem(3);
+	font-size: rem(14);
+	line-height: rem(14);
 }

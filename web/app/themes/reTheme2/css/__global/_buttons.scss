@@ -29,6 +29,10 @@
 	@include button-tertiary;
 }
 
+.c-btn--small {
+	@include button-small;
+}
+
 .buttons-wrapper {
 	display: flex;
 	flex-wrap: wrap;

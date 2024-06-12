@@ -92,7 +92,7 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 							switch ( $ap_status ) {
 								case 1:
 									$color         = '#ffc100';
-									$status_string = 'zarezerwowany';
+									$status_string = 'rezerwacja';
 									break;
 								case 2:
 									$color         = '#ff0000';
@@ -163,7 +163,7 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 							<h5 class="filter__heading">Pokoje</h5>
 							<div class="filter__buttons">
 							<?php foreach ( $rooms as $room ) : ?>
-								<button type="button" class="filter-button" data-ap-rooms-number="<?php echo esc_attr( $room ); ?>"><?php echo esc_html( $room ); ?></button>
+								<button type="button" class="filter-button c-btn c-btn--tertiary c-btn--small" data-ap-rooms-number="<?php echo esc_attr( $room ); ?>"><?php echo esc_html( $room ); ?></button>
 							<?php endforeach; ?>
 							</div>
 						</div>
@@ -173,7 +173,7 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 							<h5 class="filter__heading">Piętro</h5>
 							<div class="filter__buttons">
 							<?php foreach ( $floors as $floor ) : ?>
-								<button type="button" class="filter-button" data-ap-floor-number="<?php echo esc_attr( $floor ); ?>"><?php echo esc_html( $floor ); ?></button>
+								<button type="button" class="filter-button c-btn c-btn--tertiary c-btn--small" data-ap-floor-number="<?php echo esc_attr( $floor ); ?>"><?php echo esc_html( $floor ); ?></button>
 							<?php endforeach; ?>
 							</div>
 						</div>
@@ -182,16 +182,29 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						<div class="filter">
 							<h5 class="filter__heading">Status</h5>
 							<div class="filter__buttons">
-							<?php foreach ( $statuses as $status ) : ?>
-								<button type="button" class="filter-button" data-ap-status="<?php echo esc_attr( $status ); ?>"><?php echo esc_html( $status ); ?></button>
+							<?php
+							foreach ( $statuses as $status ) :
+								$status_string;
+								switch ( $status ) {
+									case 1:
+										$status_string = 'rezerwacja';
+										break;
+									case 2:
+										$status_string = 'sprzedany';
+										break;
+									default:
+										$status_string = 'dostępny';
+								}
+								?>
+								<button type="button" class="filter-button c-btn c-btn--tertiary c-btn--small" data-ap-status="<?php echo esc_attr( $status ); ?>"><?php echo esc_html( $status_string ); ?></button>
 							<?php endforeach; ?>
 							</div>
 						</div>
 					<?php endif; ?>
 					<?php if ( isset( $areas ) ) : ?>
-						<div class="filter">
+						<div class="filter filter--range">
 							<h5 class="filter__heading">Powierzchnia</h5>
-							<div class="filter__buttons">
+							<div class="filter__buttons range">
 								<input type="text" id="ion-area-slider" name="area-slider" value=""
 									data-min="<?php echo esc_html( min( $areas ) ); ?>"
 									data-max="<?php echo esc_html( max( $areas ) ); ?>"
@@ -205,9 +218,9 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						</div>
 					<?php endif; ?>
 					<?php if ( isset( $prices ) ) : ?>
-						<div class="filter">
+						<div class="filter filter--range">
 							<h5 class="filter__heading">Cena</h5>
-							<div class="filter__buttons">
+							<div class="filter__buttons range">
 								<input type="text" id="ion-price-slider" name="price-slider" value=""
 									data-min="<?php echo esc_html( min( $prices ) ); ?>"
 									data-max="<?php echo esc_html( max( $prices ) ); ?>"
@@ -221,15 +234,16 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						</div>
 					<?php endif; ?>
 				</div>
+				<div class="apartments-search__table">
 				<div class="apartments-search__table-header">
-					<div class="apartments-search__table-col">Numer</div>
-					<div class="apartments-search__table-col">Piętro</div>
-					<div class="apartments-search__table-col">Pokoje</div>
-					<div class="apartments-search__table-col">Łazienki</div>
-					<div class="apartments-search__table-col">Powierzchnia</div>
-					<div class="apartments-search__table-col">Cena</div>
-					<div class="apartments-search__table-col">Status</div>
-					<div class="apartments-search__table-col">Szczegóły</div>
+					<div class="apartments-search__table-col header">Numer</div>
+					<div class="apartments-search__table-col header">Piętro</div>
+					<div class="apartments-search__table-col header">Pokoje</div>
+					<div class="apartments-search__table-col header">Łazienki</div>
+					<div class="apartments-search__table-col header">Powierzchnia</div>
+					<div class="apartments-search__table-col header">Cena</div>
+					<div class="apartments-search__table-col header">Status</div>
+					<div class="apartments-search__table-col header">Szczegóły</div>
 				</div>
 					<?php
 					foreach ( $all_apartments as $row ) :
@@ -249,7 +263,7 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						switch ( $ap_status ) {
 							case 1:
 								$color         = '#ffc100';
-								$status_string = 'zarezerwowany';
+								$status_string = 'rezerwacja';
 								break;
 							case 2:
 								$color         = '#ff0000';
@@ -282,8 +296,9 @@ if ( ! empty( $as_visualization ) && ! empty( $as_apartments ) ) : ?>
 						</div>
 					</div>
 					<?php endforeach; ?>
+				</div>
 			</div>
 		</div>
 	</section>
-						<?php
+	<?php
 endif;
